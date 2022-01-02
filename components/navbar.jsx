@@ -2,20 +2,12 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
-  BookmarkAltIcon,
   ClipboardListIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  LibraryIcon,
-  CursorClickIcon,
   MenuIcon,
   MailOpenIcon,
   PhoneIcon,
   PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
   SupportIcon,
-  ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
