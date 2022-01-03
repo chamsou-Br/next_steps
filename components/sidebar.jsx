@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import {FaUser} from "react-icons/fa"
 import { IoFileTrayOutline, IoFolderOutline, IoHomeOutline, IoPeopleOutline, IoSettingsOutline, IoShareOutline, IoTrashOutline , } from "react-icons/io5"
-
+import classNames from 'classnames'
 
 const sidebarLinks = [
     {title : "Home" , icon : <IoHomeOutline size={20} color='#000000CC'/>},
@@ -15,9 +15,12 @@ const sidebarLinks = [
 ]
 
 
-function Sidebar() {
+function Sidebar(props) {
     return (
-        <div className='hidden md:block h-screen   bg-primary w-60 pt-3 pl-7 overflow-y-scroll'>
+        <div className={classNames("hidden fixed md:block  bg-primary w-60 pt-3 pl-7  overflow-x-hidden overflow-y-scroll h-screen",{
+            " animate-sidebarOpen" : props.sidebarActive == true ,
+            " animate-sidebarClose" : props.sidebarActive == false,
+        })}>
 
             {/* USER INFORMATION */}
             <div className='flex'>
@@ -25,7 +28,10 @@ function Sidebar() {
                       <Image src="/chamsou.jpg" width="40" height="40" className=" rounded-full"  />
                 </div>
                 <div className='block '>
-                    <h5 className=" text-sm font-semibold mb-1 ">{"Club of chamseddine".substring(0,12)}..</h5>
+                    <h1 className=" text-sm font-semibold mb-1 overflow-hidden">{//"Club of chamseddine".substring(0,12)}.. 
+                    }
+                        chamseddine 
+                    </h1>
                     <div className="flex">
                           <p className=" text-xs  font-bold ">Gratuit</p>
                           <button className='pl-2 pr-1'>

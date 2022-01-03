@@ -11,6 +11,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { FaBars } from 'react-icons/fa'
 
 const solutions = [
   {
@@ -47,19 +48,29 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar({onToggleSideBar}) {
   return (
+    <div className=' sticky top-0'>
     <Popover className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-         
+
          {/* logo  */}
-          <div className="flex justify-start lg:w-0 lg:flex-1">
+          <div className="flex justify-start relative lg:w-0 lg:flex-1">
+            <button className='md:block hidden xl:hidden mr-6'
+              onClick={()=>onToggleSideBar()}>
+              <FaBars size={20} className='text-black' />
+            </button>
+            <button className='hidden xl:block  absolute top-3 -left-12'
+               onClick={()=>onToggleSideBar()}>
+               <FaBars size={20} className='text-black' />
+            </button>
             <a href="#">
               <span className="sr-only">Workflow</span>
               <img
                 className="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              // src='/favicon.ico'
                 alt=""
               />
             </a>
@@ -293,6 +304,7 @@ export default function Navbar() {
         </Popover.Panel>
       </Transition>
     </Popover>
+    </div>
   )
 }
 

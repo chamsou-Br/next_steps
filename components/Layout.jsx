@@ -1,21 +1,40 @@
-import React  from "react";
+import React, { useState }  from "react";
 import Head from 'next/head';
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
+import classNames from "classnames";
 
 
 const Layout = ({children}) => {
 
+    const [sidebarActive , setSidebar] = useState(true);
+    const onToggleSideBar = () => {
+        if (sidebarActive == true) {
+            setSidebar(false)
+        }else {
+            setSidebar(true)
+        }
+    };
+
 
     return ( 
-    <div className="root min-h-full relative bg-hero-back bg-cover" >
+    <div className="root min-h-full relative" >
         <Head>
             <title>Create Next App</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Navbar />
-        <Sidebar />
-        {children}
+        <Navbar onToggleSideBar={onToggleSideBar} />
+        <div className="flex  ">
+            <Sidebar sidebarActive={sidebarActive}  />
+            <div className={classNames("",{
+                    " animate-childrenOpen" : sidebarActive ,
+                    "animate-childrenClose" : !sidebarActive
+            })} >
+            {children}
+            </div>
+            
+        </div>
+
 
     </div>
      );
