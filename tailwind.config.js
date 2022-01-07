@@ -5,6 +5,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      inset: {
+        '1/10': '10%',
+        "27.5/100" : "27.5%",
+        "12.5/100" : "12.5%"
+      },
+      spacing: {
+        '45/100': '45%',
+      },
+      backgroundImage: {
+        'login': "url('/login.webp')",
+      },
       keyframes: {
         sidebarClose: {
           "0%": { width : "240px" , overflow : "hidden"},
@@ -25,10 +36,10 @@ module.exports = {
         
       },
       animation: {
-        sidebarClose: 'sidebarClose .3s ease-in-out forwards',
-        sidebarOpen : "sidebarOpen .3s ease-in-out forwards",
-        childrenOpen : "childrenOpen .3s ease-in-out forwards",
-        childrenClose : "childrenClose .3s ease-in-out forwards"
+        sidebarClose: 'sidebarClose .2s ease-in-out forwards',
+        sidebarOpen : "sidebarOpen .2s ease-in-out forwards",
+        childrenOpen : "childrenOpen .2s ease-in-out forwards",
+        childrenClose : "childrenClose .2s ease-in-out forwards"
       }
     },
   },
