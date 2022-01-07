@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaGooglePlusG,FaGoogle } from 'react-icons/fa'
+import {IoClose} from "react-icons/io5"
 import Link from 'next/link'
 
-function RegistrPage() {
+function RegistrPage({ToogleRegisterPage,onScrollLoginRegisterPage}) {
     return (
         <div className=' h-3/4 w-45/100 bg-white shadow-md  fixed top-12.5/100 left-27.5/100 rounded-md flex '>
-                <div className=' w-1/2 text-center px-2 py-6'>
+                <div className=' w-1/2 text-center px-2 py-6 relative'>
                     <h1 className=' text-xl font-bold'>
                         Connecter or register in secondes
                     </h1>
@@ -34,16 +35,20 @@ function RegistrPage() {
                          of our services. Read our <Link href="/" ><span className='cursor-pointer hover:underline font-bold'>privacy policy</span></Link>.
                     </p>
                     
-                    <p className='cursor-pointer px-3 mt-3 text-xs  decoration-1 hover:underline text-slate-500 tracking-wide font-bold'>
+                    <p className='cursor-pointer px-3 mt-3 text-xs  decoration-1 hover:underline text-slate-500 tracking-wide font-bold'
+                       onClick={()=>onScrollLoginRegisterPage()}>
                             you have already an account !
                     </p>
-                    
-
-                    
-
                 </div>
-                <div className="w-1/2 bg-login bg-cover rounded-tr-md rounded-br-md ">
+
+                <div className="w-1/2  bg-login relative bg-cover rounded-tr-md rounded-br-md ">
+                  <div className=' flex cursor-pointer justify-center p-1 top-0 -right-8 absolute bg-black  rounded-full w-6 h-6  z-50'
+                       onClick={()=> ToogleRegisterPage()}>
+                      <IoClose className=' bg-none' size={16} color='#FFF' />
+                  </div>
                 </div>
+                
+                
         </div>
     )
 }

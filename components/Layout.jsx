@@ -5,7 +5,7 @@ import Sidebar from "./sidebar";
 import classNames from "classnames";
 
 
-const Layout = ({children}) => {
+const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
 
     const [sidebarActive , setSidebar] = useState(true);
     const onToggleSideBar = () => {
@@ -23,19 +23,16 @@ const Layout = ({children}) => {
             <title>Create Next App</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Navbar onToggleSideBar={onToggleSideBar} />
+        <Navbar onToggleSideBar={onToggleSideBar} ToogleLoginPage={ToogleLoginPage} ToogleRegisterPage={ToogleRegisterPage} />
         <div className="flex  ">
             <Sidebar sidebarActive={sidebarActive}  />
             <div className={classNames("",{
                     " animate-childrenOpen" : sidebarActive ,
                     "animate-childrenClose" : !sidebarActive
-            })} >
-            {children}
+                    })} >
+              {children}
             </div>
-            
         </div>
-
-
     </div>
      );
 }

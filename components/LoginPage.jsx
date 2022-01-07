@@ -1,8 +1,9 @@
 import React from 'react'
 import { FaGooglePlusG,FaGoogle } from 'react-icons/fa'
 import Link from 'next/link'
+import { IoClose } from 'react-icons/io5'
 
-function LoginPage() {
+function LoginPage({ToogleLoginPage,onScrollLoginRegisterPage}) {
     return (
         <div className=' h-3/4 w-45/100 bg-white shadow-md  fixed top-12.5/100 left-27.5/100 rounded-md flex '>
                 <div className=' w-1/2 text-center px-2 py-6'>
@@ -33,15 +34,17 @@ function LoginPage() {
                          of our services. Read our <Link href="/" ><span className='hover:underline font-bold cursor-pointer'>privacy policy</span></Link>.
                     </p>
                     
-                    <p className='px-3 mt-4 text-xs  decoration-1 hover:underline text-slate-500 tracking-wide font-bold cursor-pointer'>
+                    <p className='px-3 mt-4 text-xs  decoration-1 hover:underline text-slate-500 tracking-wide font-bold cursor-pointer'
+                       onClick={()=>onScrollLoginRegisterPage()}>
                             you have not an account !
                     </p>
-                    
-
-                    
-
                 </div>
-                <div className="w-1/2 bg-login bg-cover rounded-tr-md rounded-br-md ">
+
+                <div className="w-1/2  bg-login relative bg-cover rounded-tr-md rounded-br-md ">
+                  <div className=' flex cursor-pointer justify-center p-1 top-0 -right-8 absolute bg-black  rounded-full w-6 h-6  z-50'
+                       onClick={() => ToogleLoginPage()}>
+                      <IoClose className=' bg-none' size={16} color='#FFF' />
+                  </div>
                 </div>
         </div>
     )
