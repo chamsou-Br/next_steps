@@ -5,7 +5,7 @@ import Sidebar from '../components/sidebar'
 
 export default function Home() {
   return (
-    <div className=" relative">
+    <div className=" relative ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />

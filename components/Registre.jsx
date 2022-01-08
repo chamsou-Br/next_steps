@@ -4,9 +4,12 @@ import {IoClose} from "react-icons/io5"
 import Link from 'next/link'
 
 function RegistrPage({ToogleRegisterPage,onScrollLoginRegisterPage}) {
+
     return (
-        <div className=' h-3/4 w-45/100 bg-white shadow-md  fixed top-12.5/100 left-27.5/100 rounded-md flex '>
-                <div className=' w-1/2 text-center px-2 py-6 relative'>
+
+        <div className=' absolute  top-0 left-0 w-full h-full z-50 flex justify-center  '>
+        <div className=' h-loginMDH md:w-loginMDW  w-80   bg-white shadow-md  fixed  top-12.5/100   rounded-md flex '>
+                <div className='  md:w-1/2 w-full  text-center px-2 py-6 relative'>
                     <h1 className=' text-xl font-bold'>
                         Connecter or register in secondes
                     </h1>
@@ -41,14 +44,13 @@ function RegistrPage({ToogleRegisterPage,onScrollLoginRegisterPage}) {
                     </p>
                 </div>
 
-                <div className="w-1/2  bg-login relative bg-cover rounded-tr-md rounded-br-md ">
-                  <div className=' flex cursor-pointer justify-center p-1 top-0 -right-8 absolute bg-black  rounded-full w-6 h-6  z-50'
+                <div className="md:w-1/2 w-0   bg-login relative bg-cover rounded-tr-md rounded-br-md  ">
+                  <div className=' flex cursor-pointer justify-center p-1 md:top-0 md:-right-8 top-1 right-1 absolute bg-black  rounded-full w-6 h-6  z-50'
                        onClick={()=> ToogleRegisterPage()}>
                       <IoClose className=' bg-none' size={16} color='#FFF' />
                   </div>
                 </div>
-                
-                
+            </div>
         </div>
     )
 }

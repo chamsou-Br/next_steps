@@ -50,7 +50,7 @@ function classNames(...classes) {
 
 export default function Navbar({onToggleSideBar , ToogleRegisterPage , ToogleLoginPage}) {
   return (
-    <div className=' sticky top-0'>
+    <div className=' sticky z-40 top-0'>
     <Popover className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
