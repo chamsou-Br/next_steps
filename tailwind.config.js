@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        '3xl': '2px 2px 10px #6366F1',
+      },
       inset: {
         '1/10': '10%',
         "27.5/100" : "27.5%",
@@ -16,6 +19,13 @@ module.exports = {
       },
       backgroundImage: {
         'login': "url('/login.webp')",
+        "homeIntro" : "url('/shape3.svg')",
+        "shape5_1" : "url('/shape5_1.svg')",
+        "shape5_2" : "url('/shape5_2.svg')",
+        "shape5_3" : "url('/shape5_3.svg')",
+        "shape6" : "url('/shape6.svg')",
+        "shape10" : "url('/shape10.svg')",
+        "footer" : "url('/bg_footer.svg')"
       },
       keyframes: {
         sidebarClose: {

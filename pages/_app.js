@@ -32,12 +32,12 @@ function MyApp({ Component, pageProps }) {
   return(
     <>
     <div className={classNames(' relative ', {
-      " blur-smg" : loginPage || registerPage ,
+      " blur-sm," : loginPage || registerPage ,
     })}>
     <Layout ToogleLoginPage={ToogleLoginPage} ToogleRegisterPage={ToogleRegisterPage} >
         <Component {...pageProps} />
     </Layout>
-    {( loginPage || registerPage ) && <div className=' w-full z-40 h-full absolute top-0 left-0 bg-black opacity-80 '></div>}
+    { ( loginPage || registerPage ) && <div className=' w-full z-40 h-full  absolute top-0 left-0 bg-black opacity-80 '></div>}
        {loginPage && <LoginPage ToogleLoginPage={ToogleLoginPage} onScrollLoginRegisterPage={onScrollLoginRegisterPage}  />}
       {registerPage && <RegistrPage ToogleRegisterPage={ToogleRegisterPage} onScrollLoginRegisterPage={onScrollLoginRegisterPage} /> }
     </div>

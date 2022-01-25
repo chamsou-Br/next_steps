@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
   ClipboardListIcon,
@@ -12,6 +12,9 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { FaBars } from 'react-icons/fa'
+import classNames_1 from 'classnames'
+
+const scrollfixed = -1
 
 const solutions = [
   {
@@ -49,9 +52,17 @@ function classNames(...classes) {
 }
 
 export default function Navbar({onToggleSideBar , ToogleRegisterPage , ToogleLoginPage}) {
+
+
+const [scrollTop, setscrollTop] = useState(0)
+
+
   return (
-    <div className=' sticky z-40 top-0'>
-    <Popover className="relative bg-white">
+    <div className={classNames_1(" sticky z-30 top-0 ",{
+        " bg-white" : scrollTop > scrollfixed,
+        " bg-none " : scrollTop == scrollfixed
+    })} >
+    <Popover className="relative bg-none ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
 
@@ -85,9 +96,24 @@ export default function Navbar({onToggleSideBar , ToogleRegisterPage , ToogleLog
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
 
             {/* home nav */}
-            <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
-              Home
-            </a>
+
+            {(scrollTop > scrollfixed) && (
+                <a href="/" className={classNames_1("text-base px-3 font-medium text-gray-500 hover:text-gray-900")} >
+                    Home
+                </a>
+            )}
+            {(scrollTop < scrollfixed) && (
+                <Popover.Button
+                    className={classNames(
+                       'group px-3 bg-white rounded-md inline-flex text-gray-500 items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        )}
+                    >
+                    <span>Home</span>
+                </Popover.Button>
+            )} 
+
+            
+
 
             {/* Models nav */}
             <Popover className="relative">
@@ -96,7 +122,7 @@ export default function Navbar({onToggleSideBar , ToogleRegisterPage , ToogleLog
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                      'group px-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     )}
                   >
                     <span>Models</span>
@@ -141,17 +167,31 @@ export default function Navbar({onToggleSideBar , ToogleRegisterPage , ToogleLog
                 </>
               )}
             </Popover>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-              Docs
-            </a>
 
+            {/* docs nav */}
+            {(scrollTop > scrollfixed) && (
+                <a href="/" className={classNames_1("text-base px-3 font-medium text-gray-500 hover:text-gray-900")} >
+                    Docs
+                </a>
+            )}
+            {(scrollTop < scrollfixed) && (
+                <Popover.Button
+                    className={classNames(
+                       'group px-3 bg-white rounded-md inline-flex text-gray-500 items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        )}
+                    >
+                    <span>Docs</span>
+                </Popover.Button>
+            )} 
+
+             {/* More nav */}
             <Popover className="relative">
               {({ open }) => (
                 <>
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                      'group px-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     )}
                   >
                     <span>More</span>

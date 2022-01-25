@@ -24,10 +24,10 @@ const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar onToggleSideBar={onToggleSideBar} ToogleLoginPage={ToogleLoginPage} ToogleRegisterPage={ToogleRegisterPage} />
-        <div className="flex  ">
+        <div className="flex ">
             <Sidebar sidebarActive={sidebarActive}  />
-            <div className={classNames("",{
-                    " animate-childrenOpen" : sidebarActive ,
+            <div className={classNames(" w-full ",{
+                    "animate-childrenOpen" : sidebarActive ,
                     "animate-childrenClose" : !sidebarActive
                     })} >
               {children}

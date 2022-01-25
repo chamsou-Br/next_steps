@@ -5,8 +5,8 @@ import { IoClose } from 'react-icons/io5'
 
 function LoginPage({ToogleLoginPage,onScrollLoginRegisterPage}) {
     return (
-        <div className=' absolute z-50 top-0 left-0 w-full h-full flex justify-center '>
-        <div className=' h-loginMDH md:w-loginMDW  w-80   bg-white shadow-md  fixed  top-12.5/100   rounded-md flex  '>
+        <div className=' absolute z-40 top-0 left-0 w-full h-full  flex justify-center '>
+        <div className=' h-loginMDH md:w-loginMDW  w-80   bg-white shadow-md  fixed z-50 top-12.5/100   rounded-md flex  '>
                 <div className=' md:w-1/2 w-full  text-center px-2 py-6 relative'>
                     <h1 className=' text-xl font-bold'>
                         Connecter or register in secondes
