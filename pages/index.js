@@ -5,7 +5,7 @@ import Sidebar from '../components/sidebar'
 import { FaMailBulk , FaLongArrowAltRight, FaPaypal, FaCrown, FaHandsHelping, FaFacebook, FaGoogle, FaTwitter, FaPinterest } from 'react-icons/fa';
 import {MdAccountTree, MdGroup} from 'react-icons/md'
 import { IoShareSocialSharp } from 'react-icons/io5';
-// 4338CA 6366F1
+// 4338CA 6366F1 3B82F6
 
  const Home = ()=> {
   return (
