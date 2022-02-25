@@ -24,7 +24,7 @@ const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar onToggleSideBar={onToggleSideBar} ToogleLoginPage={ToogleLoginPage} ToogleRegisterPage={ToogleRegisterPage} />
-        <div className="flex ">
+        <div className="flex overflow-hidden">
             <Sidebar sidebarActive={sidebarActive}  />
             <div className={classNames(" w-full ",{
                     "animate-childrenOpen" : sidebarActive ,

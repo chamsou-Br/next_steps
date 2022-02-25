@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 
 function CoverLetterHome() {
+    const router = useRouter();
   return (
     <div>
     <div className=' flex justify-center mt-12 flex-grow flex-shrink mb-2 '>
@@ -24,7 +26,10 @@ function CoverLetterHome() {
                     After All ,it's time to get your cover letter ,Your cover letter is ready to download.
                 </p>
             </div>
-            <div className=' mt-6 py-4 bg-blue-500 text-center text-white  rounded-lg hover:cursor-pointer hover:text-blue-500 hover:bg-white hover:border '>
+            <div 
+                 className=' mt-6 py-4 bg-blue-500 text-center text-white  rounded-lg hover:cursor-pointer hover:text-blue-500 hover:bg-white hover:border '
+                 onClick={()=>router.push('coverLetter/templates')}>
+                
                 <span className=' text-lg font-bold tracking-wider '>Continue</span>
             </div>
 
