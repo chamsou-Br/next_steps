@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
 
-    const [sidebarActive , setSidebar] = useState(true);
+    const [sidebarActive , setSidebar] = useState(false);
     const onToggleSideBar = () => {
         if (sidebarActive == true) {
             setSidebar(false)
