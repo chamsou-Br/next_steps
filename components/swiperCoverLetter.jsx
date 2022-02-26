@@ -7,9 +7,19 @@ import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
+const data = [
+  {src : "/coverLetter.jpg"},
+  {src : "/coverLetter2.jpg"},
+  {src  : "/coverLetter2.png"},
+  {src : '/coverLetter3.png' },
+  {src :"/coverLetter4.jpg"}
+]
 
 const SwiperCoverLetter = () => {
 
+  const router = useRouter();
   const [width, setWidth] = useState(0); // default width, detect on server.
   const handleResize = () => setWidth(window.innerWidth);
   useEffect(() => {
@@ -32,56 +42,23 @@ const SwiperCoverLetter = () => {
     pagination={{ clickable: true }}
        className=" m-auto text-center mb-20 "
     >
-      <SwiperSlide className=' flex justify-center'>
-        <div className='w-11/12 sm:w-72  relative'>
-          <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
-            <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '>
-               Select Template 
+      {data.map((item,index) => {
+        return (
+          <SwiperSlide key={index} className=' flex justify-center'>
+          <div className='w-11/12 sm:w-72  relative'>
+            <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
+              <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '
+              onClick={()=>router.push("/coverLetter/informations")}>
+                 Select Template 
+              </div>
             </div>
-          </div>
-          <img src="/coverLetter.jpg" className='w-full sm:w-72 text-center  shadow-lg' />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide className=' flex justify-center'>
-      <div className='w-11/12 sm:w-72 relative m-auto'>
-          <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
-            <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '>
-               Select Template 
-            </div>
-          </div>
-          <img src="/coverLetter2.jpg" className='w-full sm:w-72 shadow-lg' />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide className=' flex justify-center'>
-      <div className=' w-11/12 sm:w-72 relative'>
-          <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
-            <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '>
-               Select Template 
-            </div>
-          </div>
-            <img src="/coverLetter2.png" className=' w-full sm:w-72  shadow-lg' />
+            <img src={item.src} className='w-full sm:w-72 text-center  shadow-lg' />
           </div>
         </SwiperSlide>
-      <SwiperSlide className=' flex justify-center'>
-      <div className=' w-11/12 sm:w-72 relative'>
-          <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
-            <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '>
-               Select Template 
-            </div>
-          </div>
-            <img src="/coverLetter3.png" className=' w-full sm:w-72  shadow-lg' />
-          </div>
-      </SwiperSlide>
-      <SwiperSlide className=' flex justify-center'>
-      <div className=' w-w-11/12 sm:w-72  relative'>
-          <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
-            <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '>
-               Select Template 
-            </div>
-          </div>
-            <img src="/coverLetter4.jpg" className=' w-full sm:w-72  shadow-xl' />
-          </div>
-      </SwiperSlide>
+        )
+      })}
+     
+
     </Swiper>
     </div>
   );
