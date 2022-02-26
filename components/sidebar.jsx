@@ -45,9 +45,9 @@ function Sidebar(props) {
             </div>
             <hr className='mt-2 mr-7 mb-4' />
 
-            {sidebarLinks.map(link => {
+            {sidebarLinks.map((link,index) => {
                 return (
-                    <div className="flex mb-6">
+                    <div key={index} className="flex mb-6">
                         <button className='mr-4'>
                             {link.icon}
                         </button>

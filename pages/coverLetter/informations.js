@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React, { useState } from 'react'
 import DropDowns from '../../components/DropDowns'
 import PhaseCoverLetter from '../../components/PhaseCoverLetter'
@@ -6,22 +7,39 @@ import jobs from "../../data/jobs"
 function informations() {
    const [typeSelect , setTypeSelect]  = useState("Type of job")
    const [jobSelect , setJobSelect]  = useState("Name of job")
-   const [JobsOfType , setJobOfType] = useState([]);
+   const [JobsOfType , setJobsOfType] = useState([]);
+   const onHandlerSelectTypeOfJob = (type) => {
+      setTypeSelect(type);
+      const data =  jobs.filter((item) => item.type == type);
+      setJobsOfType(data[0].list)
+   }
   return (
     <div>
         <PhaseCoverLetter data={2} />
-        <div className=' flex mt-12 justify-center pb-10 md:mx-10'>
-
-            <div className=' w-2/3 mt-10 text-center min-h-screen  '>
-                <h1 className=' text-blue-500 font-bold text-4xl tracking-wider mb-10'>
+        <div className=' flex mt-12 justify-center  md:mx-10'>
+            <div className=' w-2/3 mt-10 text-center overflow-visible pb-60  '>
+                <h1 className=' text-blue-500 font-bold text-4xl tracking-wider mb-5'>
                     The Job You are looking for !
                 </h1>
                 <div>
-                  <DropDowns data={jobs} title={typeSelect} onHandlerClick={setTypeSelect} />
+                  <DropDowns data={jobs} title={typeSelect} onHandlerClick={onHandlerSelectTypeOfJob} disabled={false} />
                 </div>
                 <div>
-                  <DropDowns data={JobsOfType} title={jobSelect} onHandlerClick={setJobSelect} />
+                  <DropDowns data={JobsOfType} title={jobSelect} onHandlerClick={setJobSelect} disabled={typeSelect == "Type of job"} />
                 </div>       
+                <div className=' m-auto mt-10 h-0.5 w-3/4 bg-black opacity-20' />
+                <div className=' flex justify-between mx-28  mt-4'>
+                <button  className=' bg-white border  text-blue-500 hover:bg-slate-50 text-sm font-bold tracking-wider text-center px-8 py-3 rounded-md '>
+                      Back
+                  </button>
+                  <button disabled={jobSelect != "Name of job"} className={classNames('  bg-blue-500 text-white text-sm font-bold tracking-wider text-center px-12 py-3 rounded-md ',{
+                       " cursor-not-allowed" : jobSelect == "Name of job",
+                       "hover:bg-white hover:border hover:text-blue-500 cursor-pointer" : jobSelect != "Name of job",
+                  })}>
+                      Continue
+                  </button>
+                </div>
+
             </div>
 
             <div className='w-1/3  pr-16 '>
@@ -36,6 +54,7 @@ function informations() {
 
             </div>
         </div>
+
     </div>
   )
 }
