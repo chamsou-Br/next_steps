@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import classNames from "classnames";
+import Footer from "./Footer";
 
 
 const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
@@ -19,12 +20,13 @@ const Layout = ({children , ToogleLoginPage , ToogleRegisterPage}) => {
 
     return ( 
     <div className="root min-h-full relative" >
+        <Footer />
         <Head>
             <title>Create Next App</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar onToggleSideBar={onToggleSideBar} ToogleLoginPage={ToogleLoginPage} ToogleRegisterPage={ToogleRegisterPage} />
-        <div className="flex overflow-hidden">
+        <div className="flex relative overflow-hidden">
             <Sidebar sidebarActive={sidebarActive}  />
             <div className={classNames(" w-full ",{
                     "animate-childrenOpen" : sidebarActive ,
