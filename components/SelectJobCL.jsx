@@ -26,7 +26,7 @@ function SelectJobCL() {
 
             </div>
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
-            <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center overflow-visible pb-60  '>
+            <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center overflow-visible pb-40  '>
                 <h1 className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
                     The Job You are looking for !
                 </h1>
@@ -35,9 +35,12 @@ function SelectJobCL() {
                 </div>
                 <div>
                   <DropDowns data={JobsOfType} title={jobSelect} onHandlerClick={setJobSelect} disabled={typeSelect == "Type of job"} />
-                </div>       
+                </div>      
+
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
                 <div className=' flex justify-between mx-8 md:mx-16  lg:mx-20  xl:mx-28  mt-4'>
+
+                {/* Button back contine */}
                 <button  className=' bg-white border  text-blue-500 hover:bg-slate-50 text-sm font-bold tracking-wider text-center px-6 lg:px-8 py-3 rounded-md '>
                       Back
                   </button>
