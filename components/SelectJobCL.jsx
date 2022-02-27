@@ -54,11 +54,11 @@ function SelectJobCL() {
 
             </div>
 
-            <div className='hidden lg:block lg:w-1/3  md:pr-0 lg:pr-8  xl:pr-16 '>
-                <div className=' w-full flex justify-start'>
+            <div className='hidden lg:block lg:w-1/3 border-l   pl-2 h-full pb-10'>
+                <div className=' w-full flex justify-center'>
                      <img src='/idea.jpg' className=' w-32' />
                 </div>
-                <div>
+                <div className=' text-center'>
                     <h3 className=' text-blue-500 font-bold tracking-wider text-xl'>Select a Job</h3>
                     <p className=' tracking-wider font-semibold text-xs text-gray-500 mt-2'>
                        This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . </p>

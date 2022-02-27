@@ -9,7 +9,7 @@ function informations() {
   return (
     <div className=' relative'>
         <PhaseCoverLetter data={2} />
-        <ExperienceCL />
+        <SelectJobCL />
 
 
     </div>
