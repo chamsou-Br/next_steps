@@ -10,6 +10,7 @@ function ExperienceCL() {
 
   return (
     <div className="">
+        {/* help  */}
           <div className=' lg:hidden w-5/6 sm:w-3/4 m-auto '>
                 <div className=' w-full flex justify-center'>
                      <img src='/idea.jpg' className=' w-32' />
@@ -108,6 +109,8 @@ function ExperienceCL() {
                 </div>
 
             </div>
+
+            {/* help  */}
             <div className='hidden lg:block lg:w-1/3 mt-20 border-l pl-2 h-full pb-10 '>
                 <div className=' w-full flex justify-center'>
                      <img src='/idea.jpg' className=' w-32' />
