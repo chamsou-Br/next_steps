@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import React, { useState } from 'react'
 import DropDowns from './CoverLetter/DropDowns'
 import jobs from "../data/jobs"
+import HelpCL_Larg from './CoverLetter/HelpCL_Larg'
+import HelpCL_Small from './CoverLetter/HelpCL_Small'
 
 function SelectJobCL() {
     const [typeSelect , setTypeSelect]  = useState("Type of job")
@@ -14,17 +16,9 @@ function SelectJobCL() {
     }
   return (
     <div>
-          <div className=' lg:hidden w-5/6 sm:w-3/4 m-auto '>
-                <div className=' w-full flex justify-center'>
-                     <img src='/idea.jpg' className=' w-32' />
-                </div>
-                <div>
-                    <h3 className=' text-blue-500 font-bold text-center tracking-wider text-xl'>Select a Job</h3>
-                    <p className=' tracking-wider font-semibold text-center text-xs text-gray-500 mt-2 '>
-                       This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . </p>
-                </div>
+          {/* Help Cover letter /> */}
+          <HelpCL_Small title="Select a Job" desc="This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . " />
 
-            </div>
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
             <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center overflow-visible pb-40  '>
                 <h1 className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
@@ -54,17 +48,10 @@ function SelectJobCL() {
 
             </div>
 
-            <div className='hidden lg:block lg:w-1/3 border-l   pl-2 h-full pb-10'>
-                <div className=' w-full flex justify-center'>
-                     <img src='/idea.jpg' className=' w-32' />
-                </div>
-                <div className=' text-center'>
-                    <h3 className=' text-blue-500 font-bold tracking-wider text-xl'>Select a Job</h3>
-                    <p className=' tracking-wider font-semibold text-xs text-gray-500 mt-2'>
-                       This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . </p>
-                </div>
+            {/* Help Cover letter */}
+            <HelpCL_Larg title="Select a Job" desc="This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . " />
 
-            </div>
+
         </div>
     </div>
   )

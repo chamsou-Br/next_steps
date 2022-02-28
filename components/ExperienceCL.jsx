@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React, { useState } from 'react'
 import DropDowns from './CoverLetter/DropDowns'
 import jobs from "../data/jobs"
+import HelpCL_Small from './CoverLetter/HelpCL_Small';
 
 function ExperienceCL() {
     const [level , setLevel] = useState(null);
@@ -10,18 +11,10 @@ function ExperienceCL() {
 
   return (
     <div className="">
-        {/* help  */}
-          <div className=' lg:hidden w-5/6 sm:w-3/4 m-auto '>
-                <div className=' w-full flex justify-center'>
-                     <img src='/idea.jpg' className=' w-32' />
-                </div>
-                <div>
-                    <h3 className=' text-blue-500 font-bold text-center tracking-wider text-xl'>Experience with this Job </h3>
-                    <p className=' tracking-wider font-semibold text-center text-xs text-gray-500 mt-2 '>
-                    This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise .  </p>
-                </div>
 
-            </div>
+        {/* Help Cover letter */}
+      <HelpCL_Small title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
+           
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
             <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
                 <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
@@ -110,18 +103,9 @@ function ExperienceCL() {
 
             </div>
 
-            {/* help  */}
-            <div className='hidden lg:block lg:w-1/3 mt-20 border-l pl-2 h-full pb-10 '>
-                <div className=' w-full flex justify-center'>
-                     <img src='/idea.jpg' className=' w-32' />
-                </div>
-                <div className=' text-center'>
-                    <h3 className=' text-blue-500 font-bold tracking-wider text-xl'>Experience With this Job</h3>
-                    <p className=' tracking-wider font-semibold text-xs text-gray-500 mt-2'>
-                       This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . </p>
-                </div>
-
-            </div>
+             {/* Help Cover letter */}
+             <HelpCL_Larg title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
+           
         </div>
     </div>
   )

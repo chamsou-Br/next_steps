@@ -3,6 +3,7 @@ import MyVerticallyCenteredModal from './CoverLetter/Modal';
 import classNames from 'classnames';
 import SkillsSelected from './CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
+import HelpCL_Small from './CoverLetter/HelpCL_Small';
 
 const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -27,18 +28,10 @@ const SkilllsCoverLetter = (props) => {
   
   return (
     <div className=" h-screen">
-    {/* help  */}
-      <div className=' lg:hidden w-5/6 sm:w-3/4 m-auto '>
-            <div className=' w-full flex justify-center'>
-                 <img src='/idea.jpg' className=' w-32' />
-            </div>
-            <div>
-                <h3 className=' text-blue-500 font-bold text-center tracking-wider text-xl'>Experience with this Job </h3>
-                <p className=' tracking-wider font-semibold text-center text-xs text-gray-500 mt-2 '>
-                This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise .  </p>
-            </div>
 
-        </div>
+        {/* Help Cover letter */}
+        <HelpCL_Small title="Skills in this Job" desc="This is a page to let you select  your skills in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . " />
+
 
 
      {/* Select Skiils */}
@@ -103,18 +96,9 @@ const SkilllsCoverLetter = (props) => {
 
         </div>
 
-        {/* help  */}
-        <div className='hidden lg:block lg:w-1/3 mt-20 border-l pl-2 h-full pb-10 '>
-            <div className=' w-full flex justify-center'>
-                 <img src='/idea.jpg' className=' w-32' />
-            </div>
-            <div className=' text-center'>
-                <h3 className=' text-blue-500 font-bold tracking-wider text-xl'>Experience With this Job</h3>
-                <p className=' tracking-wider font-semibold text-xs text-gray-500 mt-2'>
-                   This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . </p>
-            </div>
+          {/* Help Cover letter */}
+         <HelpCL_Larg title="Skills in this Job" desc="This is a page to let you select  your skills in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . " />
 
-        </div>
     </div>
 </div>
   )
