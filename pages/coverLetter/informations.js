@@ -14,7 +14,6 @@ function informations() {
     <div className=' '>
         <PhaseCoverLetter data={2} />
         <SkilllsCoverLetter data={jobs} />
-        <Checkbox checked={true} />
         
 
 

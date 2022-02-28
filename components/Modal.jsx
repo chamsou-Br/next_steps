@@ -23,7 +23,7 @@ const MyVerticallyCenteredModal = (props) => {
         </Modal.Body>
         <Modal.Footer>
         <button onClick={props.onSelect}className={classNames(' bg-blue-500 text-white text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                   "hover:bg-white  hover:border hover:text-blue-500 cursor-pointer" : props.skills.length == 0 ,
+                   "hover:bg-white  hover:border hover:text-blue-500 cursor-pointer" : props.skills.length > 0 ,
                     })}>
                   Continue
         </button>

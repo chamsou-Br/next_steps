@@ -7,8 +7,12 @@ const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [skills,setSkills] = useState([])
   const onSelect = (skill) => {
-    const newSkills = skills.push(skill);
-    setSkills(newSkills);
+    if (skills.indexOf(skill) == -1) {
+      setSkills([...skills , skill]);
+    }else {
+      setSkills(skills.filter(item => item != skill))
+    }
+
   }
   return (
     <div className=" h-screen">
@@ -38,7 +42,7 @@ const SkilllsCoverLetter = (props) => {
               Launch vertically centered modal
             </button>
 
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}  body={<SkillsSelected data={props.data} /> } skills={skills} onSelect={onSelect}  />
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false) }  body={<SkillsSelected onSelect={onSelect} data={props.data} skills={skills}  /> } skills={skills}   />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
@@ -53,6 +57,7 @@ const SkilllsCoverLetter = (props) => {
                     })}>
                   Continue
                 </button>
+                <h1 onClick={()=>console.log(skills)}>dfffff</h1>
             </div>
 
         </div>
