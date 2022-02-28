@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import DropDowns from './CoverLetter/DropDowns'
 import jobs from "../data/jobs"
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
+import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
+import ContinueCL from './CoverLetter/ContinueCL';
 
 function ExperienceCL() {
     const [level , setLevel] = useState(null);
@@ -89,17 +91,7 @@ function ExperienceCL() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <div  className=' flex justify-between mx-8 md:mx-16  lg:mx-20  xl:mx-28  mt-4'>
-                     <button   className=' bg-white border  text-blue-500 hover:bg-slate-50 text-sm font-bold tracking-wider text-center px-6 lg:px-8 py-3 rounded-md '>
-                      Back
-                     </button>
-                    <button disabled={yearExperience == 0 || level == null} className={classNames('  bg-blue-500 text-white text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                       " cursor-not-allowed" : !level || yearExperience == 0,
-                       "hover:bg-white hover:border hover:text-blue-500 cursor-pointer" : level != null ,
-                        })}>
-                      Continue
-                    </button>
-                </div>
+                <ContinueCL disabled={yearExperience == 0 || level == null} />
 
             </div>
 

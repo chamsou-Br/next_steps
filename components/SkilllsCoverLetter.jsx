@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import SkillsSelected from './CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
+import ContinueCL from './CoverLetter/ContinueCL';
+import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 
 const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -25,14 +27,18 @@ const SkilllsCoverLetter = (props) => {
     setSkills(skillsSelected);
     setModalShow(false)
   }
+
+  // onHide Modal 
+  const onHide = () => {
+    setModalShow(false);
+    setSkillsSelected(skills)
+  }
   
   return (
     <div className=" h-screen">
 
         {/* Help Cover letter */}
         <HelpCL_Small title="Skills in this Job" desc="This is a page to let you select  your skills in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . " />
-
-
 
      {/* Select Skiils */}
 
@@ -75,24 +81,15 @@ const SkilllsCoverLetter = (props) => {
             )}
 
             <MyVerticallyCenteredModal
-                 show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }
-                  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> }
-                   skillsSelected={skillsSelected} skills={skills} onHandler={onHandler}   />
+                 show={modalShow} onHide={onHide }
+                  disabled={skillsSelected.length == 0 && skills.length == 0}  max={skillsSelected.length == 5} onHandler={onHandler}  
+                  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <div  className=' flex justify-between mx-8 md:mx-16  lg:mx-20  xl:mx-28  mt-4'>
-                 <button   className=' bg-white border  text-blue-500 hover:bg-slate-50 text-sm font-bold tracking-wider text-center px-6 lg:px-8 py-3 rounded-md '>
-                  Back
-                 </button>
-                <button disabled={skills.length == 0} className={classNames('  bg-blue-500 text-white text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                   " cursor-not-allowed" : skills.length == 0,
-                   "hover:bg-white hover:border hover:text-blue-500 cursor-pointer" : skills.length > 0 ,
-                    })}>
-                  Continue
-                </button>
-            </div>
+            <ContinueCL disabled={skills.length == 0} />
+
 
         </div>
 

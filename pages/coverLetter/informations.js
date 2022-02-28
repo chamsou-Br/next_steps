@@ -13,7 +13,7 @@ function informations() {
   return (
     <div className=' '>
         <PhaseCoverLetter data={2} />
-        <SelectJobCL data={jobs} />
+        <SkilllsCoverLetter data={jobs} />
         
 
 
