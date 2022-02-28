@@ -11,12 +11,14 @@ function SkillsSelected(props) {
         {props.data.map((item , index) => {
           return(
             <div key={index} onClick={()=>  props.onSelect(item.type) }
-                 className={classNames("flex mb-4 hover:text-blue-500 ",{
+                 className={classNames("flex mb-4   ",{
+                "hover:text-blue-500 cursor-pointer" : props.skillsSelected.length < 5 || props.skillsSelected.indexOf(item.type) != -1 ,
                 'text-blue-500' : props.skillsSelected.indexOf(item.type) != -1,
                 'text-gray-500' : props.skillsSelected.indexOf(item.type) == -1,
+                ' opacity-50' : props.skillsSelected.length == 5 && props.skillsSelected.indexOf(item.type) == -1
             })} >
-              <Checkbox checked={props.skillsSelected.indexOf(item.type) != -1}  />
-              <h1 className=' cursor-pointer text-sm font-bold  tracking-wider ml-4 '>{item.type}</h1>
+              <Checkbox disabled={props.skillsSelected.length == 5} checked={props.skillsSelected.indexOf(item.type) != -1}  />
+              <h1 className='  text-sm font-bold  tracking-wider ml-4 '>{item.type}</h1>
             </div>
         )})}
       </Scrollbar>

@@ -2,12 +2,13 @@ import classNames from 'classnames'
 import React from 'react'
 import {FaCheck} from 'react-icons/fa'
 
-function Checkbox({checked}) {
+function Checkbox({checked,disabled}) {
   return (
     <div  className=' inline-block' >
-        <div className={classNames(' h-4 w-4 mt-0.5 cursor-pointer  text-center flex justify-center border border-gray-500 hover:border-blue-500 hover:border-2 p-0.5' , {
+        <div className={classNames(' h-4 w-4 mt-0.5   text-center flex justify-center border border-gray-500  p-0.5' , {
             " bg-blue-500 border-blue-500 " : checked == true,
-            "bg-white" : checked == false
+            "bg-white" : checked == false,
+            'hover:border-blue-500 hover:border-2 cursor-pointer' : disabled == false
         })} >
             <FaCheck  className={classNames("  text-white",{ 
               " opacity-0 " : checked == false ,

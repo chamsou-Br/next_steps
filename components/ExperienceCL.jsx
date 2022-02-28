@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useState } from 'react'
-import DropDowns from './DropDowns'
+import DropDowns from './CoverLetter/DropDowns'
 import jobs from "../data/jobs"
 
 function ExperienceCL() {

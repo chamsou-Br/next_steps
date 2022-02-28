@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import MyVerticallyCenteredModal from './Modal';
+import MyVerticallyCenteredModal from './CoverLetter/Modal';
 import classNames from 'classnames';
-import SkillsSelected from './SkillsSelected';
+import SkillsSelected from './CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
 
 const SkilllsCoverLetter = (props) => {
@@ -81,7 +81,10 @@ const SkilllsCoverLetter = (props) => {
               </>
             )}
 
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } skillsSelected={skillsSelected} skills={skills} onHandler={onHandler}   />
+            <MyVerticallyCenteredModal
+                 show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }
+                  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> }
+                   skillsSelected={skillsSelected} skills={skills} onHandler={onHandler}   />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
