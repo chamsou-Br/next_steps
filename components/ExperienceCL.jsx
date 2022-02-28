@@ -6,6 +6,7 @@ import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import ContinueCL from './CoverLetter/ContinueCL';
 import YearExperience from './CoverLetter/YearExperience';
+import LevelExperience from './CoverLetter/LevelExperience';
 
 function ExperienceCL() {
     const [level , setLevel] = useState(null);
@@ -25,25 +26,7 @@ function ExperienceCL() {
                 </h1>
 
                 {/* Level Experience */}
-                <div className='flex justify-evenly'>
-
-                    <button  className={classNames(' border hover:border-blue-500 bg-white text-blue-500 cursor-pointer text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                        "border-blue-500 " : level == "Junior",
-                    })} onClick={()=>setLevel("Junior")}>
-                        Junior
-                    </button>
-                    <button  className={classNames('border hover:border-blue-500  bg-white text-blue-500 cursor-pointer text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                        "border-blue-500" : level == "Senior",
-                    })} onClick={()=>setLevel("Senior")}>
-                        Senior
-                    </button>
-                    <button  className={classNames('border hover:border-blue-500  bg-white text-blue-500 cursor-pointer text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
-                        "border-blue-500 " : level == "Expert",
-                    })} onClick={()=>setLevel("Expert")}>
-                        Expert
-                    </button>
-
-                </div>  
+                <LevelExperience level={level} setLevel={(v) => setLevel(v)  } />
                     
                 {/* Year Experience */}
                 <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={setYearExperience} />
@@ -59,7 +42,7 @@ function ExperienceCL() {
                 {/* Button back contine */}
                 <ContinueCL disabled={yearExperience == 0 || level == null} />
 
-            </div>
+             </div>
 
              {/* Help Cover letter */}
              <HelpCL_Larg title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
