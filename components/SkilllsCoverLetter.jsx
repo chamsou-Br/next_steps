@@ -2,18 +2,28 @@ import React, { useState } from 'react'
 import MyVerticallyCenteredModal from './Modal';
 import classNames from 'classnames';
 import SkillsSelected from './SkillsSelected';
+import { FaPlus } from 'react-icons/fa';
 
 const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
-  const [skills,setSkills] = useState([])
-  const onSelect = (skill) => {
-    if (skills.indexOf(skill) == -1) {
-      setSkills([...skills , skill]);
-    }else {
-      setSkills(skills.filter(item => item != skill))
-    }
+  const [skills,setSkills] = useState([]);
+  const [skillsSelected , setSkillsSelected] = useState([]);
 
+  // select skills function
+  const onSelect = (skill) => {
+    if (skillsSelected.indexOf(skill) == -1) {
+      setSkillsSelected([...skillsSelected , skill]);
+    }else {
+      setSkillsSelected(skillsSelected.filter(item => item != skill))
+    }
   }
+
+  // consfirm selecte function
+  const onHandler = () => {
+    setSkills(skillsSelected);
+    setModalShow(false)
+  }
+  
   return (
     <div className=" h-screen">
     {/* help  */}
@@ -37,12 +47,37 @@ const SkilllsCoverLetter = (props) => {
             <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
                 Your Skills in this Job 
             </h1>
+            {skills.length == 0 && (
+                <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>
+                  
+                  <div className=' hover:text-blue-500 cursor-pointer flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
+                  <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
+                  Add your skills
+                  </div>
+                </div>
+            )}
 
-            <button variant="primary" onClick={() => setModalShow(true)}>
-              Launch vertically centered modal
-            </button>
+            {skills.length > 0 && (
+              <>              
+              <div className=' relative border-dashed border-4 w-3/5  m-auto pt-8 pb-5 mb-10'>    
+                  {skills.map((item,index) => {
+                      return(
+                        <div key={index} className=' w-80 m-auto mb-3 bg-white border border-gray-500 px-2 py-2'>
+                            <p className=' text-blue-500 tracking-wider font-bold text-sm'>
+                                {item}
+                            </p>
+                        </div>
+              )})}
+               <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={() => setModalShow(true)}>
+                    <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
+                     Add your skills
+                </div>
+              </div>
 
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false) }  body={<SkillsSelected onSelect={onSelect} data={props.data} skills={skills}  /> } skills={skills}   />
+              </>
+            )}
+
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } skills={skills} onHandler={onHandler}   />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
@@ -57,7 +92,6 @@ const SkilllsCoverLetter = (props) => {
                     })}>
                   Continue
                 </button>
-                <h1 onClick={()=>console.log(skills)}>dfffff</h1>
             </div>
 
         </div>
