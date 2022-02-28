@@ -15,7 +15,11 @@ const MyVerticallyCenteredModal = (props) => {
       >
         <Modal.Header closeButton closeVariant="white" className=" bg-blue-500 text-white" >
           <Modal.Title id="" className=" text-sm font-bold tracking-wider text-white">
-            Modal heading
+            Select skills
+            { props.skillsSelected.length == 5 ? (
+              <p className=" text-sx text-white tracking-wide font-meduim">You select nombre maximum of skills</p>
+            )  : null} 
+            
           </Modal.Title>
         </Modal.Header>
         <Modal.Body  >

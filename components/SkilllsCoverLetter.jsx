@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import MyVerticallyCenteredModal from './Modal';
 import classNames from 'classnames';
 import SkillsSelected from './SkillsSelected';
-import { FaPlus } from 'react-icons/fa';
+import { FaEdit, FaPlus } from 'react-icons/fa';
 
 const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -12,7 +12,8 @@ const SkilllsCoverLetter = (props) => {
   // select skills function
   const onSelect = (skill) => {
     if (skillsSelected.indexOf(skill) == -1) {
-      setSkillsSelected([...skillsSelected , skill]);
+        skillsSelected.length < 5 ? 
+          setSkillsSelected([...skillsSelected , skill]) : null
     }else {
       setSkillsSelected(skillsSelected.filter(item => item != skill))
     }
@@ -69,15 +70,18 @@ const SkilllsCoverLetter = (props) => {
                         </div>
               )})}
                <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={() => setModalShow(true)}>
-                    <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
-                     Add your skills
+                     {skills.length < 5 ? (
+                        <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
+                     ) : (<FaEdit className=' text-blue-500 font-bold text-center mr-3 mt-1' /> )} 
+                   
+                     {skills.length < 5 ? "Add your skills" : "Modify your skills"} 
                 </div>
               </div>
 
               </>
             )}
 
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } skills={skills} onHandler={onHandler}   />
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => {setModalShow(false);setSkillsSelected(skills)} }  body={<SkillsSelected onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } skillsSelected={skillsSelected} skills={skills} onHandler={onHandler}   />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
