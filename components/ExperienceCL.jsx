@@ -5,6 +5,7 @@ import jobs from "../data/jobs"
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import ContinueCL from './CoverLetter/ContinueCL';
+import YearExperience from './CoverLetter/YearExperience';
 
 function ExperienceCL() {
     const [level , setLevel] = useState(null);
@@ -45,43 +46,8 @@ function ExperienceCL() {
                 </div>  
                     
                 {/* Year Experience */}
-                <div className=' m-auto flex justify-center mt-6 '>
-                    <div className={classNames(" cursor-pointer mr-5 border flex  rounded-full w-10 h-10 text-base font-bold ",{
-                            "hover:border-blue-500 text-blue-500" : level !=null ,
-                            "text-gray-500 cursor-default" : level == null,
-                            "border-blue-500 " : yearExperience == 1,
-                    })} onClick={()=>level !=null ? setYearExperience(1) : null}>
-                        <p className=' m-auto text-center'>1</p>
-                    </div>
-                    <div className={classNames(" cursor-pointer mr-5 border flex  rounded-full w-10 h-10 text-base font-bold ",{
-                            "hover:border-blue-500 text-blue-500" : level !=null ,
-                            "text-gray-500 cursor-default" : level == null,
-                            "border-blue-500 " : yearExperience == 2 ,
-                    })} onClick={()=>level !=null ? setYearExperience(2) : null}>
-                        <p className=' m-auto text-center'>2</p>
-                    </div>
-                    <div className={classNames(" cursor-pointer mr-5 border flex  rounded-full w-10 h-10 text-base font-bold ",{
-                            "hover:border-blue-500 text-blue-500" : level !=null ,
-                            "text-gray-500 cursor-default" : level == null,
-                            "border-blue-500 " : yearExperience == 3,
-                    })} onClick={()=>level !=null ? setYearExperience(3) : null}>
-                        <p className=' m-auto text-center'>3</p>
-                    </div>
-                    <div className={classNames(" cursor-pointer mr-5 border flex  rounded-full w-10 h-10 text-base font-bold ",{
-                            "hover:border-blue-500 text-blue-500" : level !=null ,
-                            "text-gray-500 cursor-default" : level == null,
-                            "border-blue-500 " : yearExperience == 4,
-                    })} onClick={()=>level !=null ? setYearExperience(4) : null}>
-                        <p className=' m-auto text-center'>4</p>
-                    </div>
-                    <div className={classNames(" cursor-pointer border flex  rounded-full w-10 h-10 text-base font-bold ",{
-                            "hover:border-blue-500 text-blue-500" : level !=null ,
-                            "text-gray-500 cursor-default " : level == null,
-                            "border-blue-500 " : yearExperience == 5,
-                    })} onClick={()=>level !=null ? setYearExperience(5) : null}>
-                        <p className=' m-auto text-center'>+5</p>
-                    </div>
-                </div> 
+                <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={setYearExperience} />
+                
 
                 {/* Last Work */}
                 <div className=''>
