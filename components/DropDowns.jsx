@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { Scrollbar } from "react-scrollbars-custom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -28,7 +29,7 @@ function classNames(...classes) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items  className="origin-top-right absolute overflow-visible z-50  right-0 mt-2 w-56 h-60 rounded-md shadow-lg bg-white  overflow-y-scroll ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items  className="origin-top-right absolute overflow-visible z-50  right-0 mt-2 w-56 h-60 rounded-md shadow-lg bg-white   ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
               {props.data.map((item,index) => {
                   return(

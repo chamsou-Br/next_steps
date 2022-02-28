@@ -14,7 +14,7 @@ const MyVerticallyCenteredModal = (props) => {
         
       >
         <Modal.Header closeButton closeVariant="white" className=" bg-blue-500 text-white" >
-          <Modal.Title id="" className=" text-xs tracking-wider text-white">
+          <Modal.Title id="" className=" text-sm font-bold tracking-wider text-white">
             Modal heading
           </Modal.Title>
         </Modal.Header>

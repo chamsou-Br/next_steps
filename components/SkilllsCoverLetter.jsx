@@ -3,9 +3,9 @@ import MyVerticallyCenteredModal from './Modal';
 import classNames from 'classnames';
 import SkillsSelected from './SkillsSelected';
 
-const SkilllsCoverLetter = () => {
+const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
-  const [skills,setSkills] = useState(["h"])
+  const [skills,setSkills] = useState([])
   const onSelect = (skill) => {
     const newSkills = skills.push(skill);
     setSkills(newSkills);
@@ -38,7 +38,7 @@ const SkilllsCoverLetter = () => {
               Launch vertically centered modal
             </button>
 
-            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}  body={<SkillsSelected /> } skills={skills} onSelect={onSelect}  />
+            <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}  body={<SkillsSelected data={props.data} /> } skills={skills} onSelect={onSelect}  />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 

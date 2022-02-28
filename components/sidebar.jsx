@@ -17,8 +17,8 @@ const sidebarLinks = [
 
 function Sidebar(props) {
     return (
-        <div className={classNames("hidden fixed md:block bg-white w-30 pt-3 pl-7  overflow-x-hidden overflow-y-scroll h-screen",{
-            " animate-sidebarOpen" : props.sidebarActive == true ,
+        <div className={classNames("hidden fixed md:block bg-white w-30 pt-3   overflow-x-hidden overflow-y-auto h-screen",{
+            " animate-sidebarOpen pl-7" : props.sidebarActive == true ,
             " animate-sidebarClose" : props.sidebarActive == false,
         })}>
 
