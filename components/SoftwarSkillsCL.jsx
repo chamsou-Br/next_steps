@@ -5,6 +5,7 @@ import { FaEdit, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
+import softwarskills from '../data/softwarSkills';
 
 const SoftwarSkillsCL = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -44,7 +45,7 @@ const SoftwarSkillsCL = (props) => {
     <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
         <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
             <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
-                Your skillsSoftwar in this Job 
+                Your skills Softwar in this Job 
             </h1>
             {skillsSoftwar.length == 0 && (
                 <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>
@@ -82,7 +83,7 @@ const SoftwarSkillsCL = (props) => {
             <MyVerticallyCenteredModal
                  show={modalShow} onHide={onHide }
                   disabled={skillsSelected.length == 0 && skillsSoftwar.length == 0}  max={skillsSelected.length == 3} onHandler={onHandler}  
-                  body={<SkillsSelected max={3} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
+                  body={<SkillsSelected max={3} onSelect={onSelect} data={softwarskills} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
