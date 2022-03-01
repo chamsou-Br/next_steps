@@ -1,6 +1,6 @@
 import React from 'react'
-import PhaseCoverLetter from '../../components/PhaseCoverLetter'
-import SwiperCoverLetter from '../../components/swiperCoverLetter'
+import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
+import SwiperCoverLetter from '../../components/CoverLetter/swiperCoverLetter'
 
 function templates() {
   return (
