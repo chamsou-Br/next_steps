@@ -8,13 +8,14 @@ import SelectJobCL from '../../components/SelectJobCL'
 import SkilllsCoverLetter from '../../components/SkilllsCoverLetter'
 import jobs from '../../data/jobs'
 import SoftwarSkillsCL from '../../components/SoftwarSkillsCL'
+import LastJobCL from '../../components/LastJobCL'
 
 function informations() {
 
   return (
     <div className=' '>
         <PhaseCoverLetter data={2} />
-        <SkilllsCoverLetter data={jobs} />
+        <LastJobCL data={jobs} />
         
 
 

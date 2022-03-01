@@ -48,7 +48,7 @@ const SkilllsCoverLetter = (props) => {
                 Your Skills in this Job 
             </h1>
             {skills.length == 0 && (
-                <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>
+                <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  '>
                   
                   <div className=' hover:text-blue-500 font-bold text-sm tracking-wider cursor-pointer flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
                   <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 

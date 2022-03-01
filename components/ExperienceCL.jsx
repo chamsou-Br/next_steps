@@ -32,11 +32,6 @@ function ExperienceCL() {
                 <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={setYearExperience} />
                 
 
-                {/* Last Work */}
-                <div className=''>
-                  <DropDowns data={jobs} title={lastJob} onHandlerClick={setLastJob} disabled={false} />
-                </div> 
-
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
