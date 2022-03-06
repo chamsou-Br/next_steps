@@ -9,15 +9,11 @@ import 'swiper/css/navigation'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const data = [
-  {src : "/coverLetter.jpg"},
-  {src : "/coverLetter2.jpg"},
-  {src  : "/coverLetter2.png"},
-  {src : '/coverLetter3.png' },
-  {src :"/coverLetter4.jpg"}
-]
 
-const SwiperCoverLetter = () => {
+
+const SwiperCoverLetter = (props) => {
+
+  const data = props.data;
 
   const router = useRouter();
   const [width, setWidth] = useState(0); // default width, detect on server.
