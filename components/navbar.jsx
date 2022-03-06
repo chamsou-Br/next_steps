@@ -20,13 +20,13 @@ const solutions = [
   {
     name: 'Cv',
     description: 'write a great cv about your skills to get a great job.',
-    href: '#',
+    href: '/cv',
     icon: ClipboardListIcon,
   },
   {
     name: 'Cover letter',
     description: 'get a better cover letter with more meaningful way',
-    href: '#',
+    href: '/coverLetter',
     icon: MailOpenIcon,
   },
 ]
