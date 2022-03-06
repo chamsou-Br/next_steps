@@ -10,7 +10,7 @@ function classNames(...classes) {
 
  function DropDowns(props) {
   return (
-    <Menu as="div"   className="relative inline-block text-left mt-8 ">
+    <Menu as="div"   className="relative inline-block text-left mt-2 ">
       <div className='w-80 flex'>
         <Menu.Button disabled={props.disabled} className="inline-flex relative w-full  rounded-md border border-gray-300 shadow-sm px-4 py-3 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100  ">
           {props.title}

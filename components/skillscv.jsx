@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import MyVerticallyCenteredModal from './CoverLetter/Modal';
+import MyVerticallyCenteredModal from './Modal';
 import SkillsSelected from './CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
+import IntroModalCV from './cv/IntroModalCV';
 
 const SkilllsCV = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -80,8 +81,8 @@ const SkilllsCV = (props) => {
             )}
 
             <MyVerticallyCenteredModal
-                 show={modalShow} onHide={onHide }
-                  disabled={skillsSelected.length == 0 && skills.length == 0}  max={skillsSelected.length == 5} onHandler={onHandler}  
+                 show={modalShow} onHide={onHide } intro={<IntroModalCV max={skillsSelected.length == 5} />  }
+                  disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
                   body={<SkillsSelected max={5} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />

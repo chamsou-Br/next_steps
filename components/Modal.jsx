@@ -1,7 +1,8 @@
 import { Button, Modal } from "react-bootstrap";
 import React from "react";
 import classNames from "classnames";
-const MyVerticallyCenteredModal = ({show,onHide,disabled,max,body,onHandler}) => {
+import IntroModalCL from "./CoverLetter/IntroModalCL";
+const MyVerticallyCenteredModal = ({show,onHide,disabled,body,onHandler,intro}) => {
     return (
 
       
@@ -18,11 +19,7 @@ const MyVerticallyCenteredModal = ({show,onHide,disabled,max,body,onHandler}) =>
       >
         <Modal.Header closeButton closeVariant="white" className=" bg-blue-500 text-white" >
           <Modal.Title id="" className=" text-sm font-bold tracking-wider text-white">
-            Select skills
-            { max ? (
-              <p className=" text-sx text-white tracking-wide font-meduim">You select nombre maximum of skills</p>
-            )  : null} 
-            
+           {intro}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body  >

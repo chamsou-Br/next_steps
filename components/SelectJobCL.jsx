@@ -24,10 +24,10 @@ function SelectJobCL() {
                 <h1 className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
                     The Job You are looking for !
                 </h1>
-                <div>
+                <div className='mt-6'>
                   <DropDowns data={jobs} title={typeSelect} onHandlerClick={onHandlerSelectTypeOfJob} disabled={false} />
                 </div>
-                <div>
+                <div className=' mt-6'>
                   <DropDowns data={JobsOfType} title={jobSelect} onHandlerClick={setJobSelect} disabled={typeSelect == "Type of job"} />
                 </div>      
 

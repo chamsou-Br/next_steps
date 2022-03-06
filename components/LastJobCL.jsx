@@ -24,7 +24,7 @@ function LastJobCL() {
                 </h1>
 
                 {/* Last Work */}
-                <div className=''>
+                <div className='mt-6'>
                   <DropDowns data={jobs} title={lastJob} onHandlerClick={setLastJob} disabled={false} />
                 </div> 
                 
