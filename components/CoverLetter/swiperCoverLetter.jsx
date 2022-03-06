@@ -44,7 +44,7 @@ const SwiperCoverLetter = (props) => {
           <div className='w-11/12 sm:w-72  relative'>
             <div className=' absolute top-0 left-0 w-full h-full opacity-0  flex justify-center m-auto hover:opacity-100   hover:bg-black/[.3] '>
               <div className=' m-auto text-center text-white font-bold text-lg tracking-wider bg-blue-500 px-7 py-3 shadow-lg cursor-pointer hover:bg-white hover:border-2 hover:text-blue-500 '
-              onClick={()=>router.push("/coverLetter/informations")}>
+              onClick={()=>router.push(props.route)}>
                  Select Template 
               </div>
             </div>

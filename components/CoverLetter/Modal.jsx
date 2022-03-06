@@ -3,6 +3,9 @@ import React from "react";
 import classNames from "classnames";
 const MyVerticallyCenteredModal = ({show,onHide,disabled,max,body,onHandler}) => {
     return (
+
+      
+
     <div className=" bg-black w-52 overflow-hidden">
       <Modal
         className="ModalCss"
