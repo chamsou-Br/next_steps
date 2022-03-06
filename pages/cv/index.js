@@ -1,6 +1,8 @@
 import React from 'react'
+import {useRouter} from "next/router"
 
 function cvHome() {
+    const router = useRouter();
   return (
     <div>
     <div className=' flex justify-center mt-12 flex-grow flex-shrink mb-2 '>
