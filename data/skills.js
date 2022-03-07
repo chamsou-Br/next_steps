@@ -8,8 +8,8 @@ const skills = [
         list : ["Creativity","Innovation","Architecting Content","Marketing","Image management","Adobe Analytics","Microsoft office","Photoshop","Adobe InDesign",'Adobe Illustrator',"Adobe Creative Cloud","Adobe premier pro","Adobe after effect","Digital video cameras","Photography","Marking Color Breaks","Printing Layout","Infographics","Typography","Open-minded","Collaboration","Film Development","Digital Imaging",'Digital video cameras']
     },
     {
-        type : "",
-        list : [ ]
+        type : "Education / Public Sector",
+        list : ["Researching and publishing","Mentoring students","Engagement","Trustworthiness","Critical Thinking","Boundary Setting","People Orientation","Solving problems","Genuine","Patience","Classroom management software","Microsoft Office software",'Electronic performance evaluations',"Virtual meetings"]
     },
     {
         type : "",
