@@ -9,6 +9,7 @@ import IntroModalCV from './cv/IntroModalCV';
 
 const SkilllsCV = (props) => {
   const [modalShow, setModalShow] = useState(false);
+  const [typeSkills , setTypeSkills] = useState("type skills")
   const [skills,setSkills] = useState([]);
   const [skillsSelected , setSkillsSelected] = useState([]);
 
@@ -81,7 +82,7 @@ const SkilllsCV = (props) => {
             )}
 
             <MyVerticallyCenteredModal
-                 show={modalShow} onHide={onHide } intro={<IntroModalCV max={skillsSelected.length == 5} />  }
+                 show={modalShow} onHide={onHide } intro={<IntroModalCV title={typeSkills} onHandler={setTypeSkills} max={skillsSelected.length == 5} />  }
                   disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
                   body={<SkillsSelected max={5} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
 
