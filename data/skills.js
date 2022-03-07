@@ -12,12 +12,12 @@ const skills = [
         list : ["Researching and publishing","Mentoring students","Engagement","Trustworthiness","Critical Thinking","Boundary Setting","People Orientation","Solving problems","Genuine","Patience","Classroom management software","Microsoft Office software",'Electronic performance evaluations',"Virtual meetings"]
     },
     {
-        type : "",
-        list : [ ]
+        type : "Finance Industry Jobs",
+        list : ["Financial software","Analytical","Communication/Interpersonal","Detail Oriented","IT Knowledge","Microsoft Office","Organizational/Business","Financial Management","MS Excel","QuickBooks",'Accounting Techniques',"Decision Making","Analytical thinking",'Detail-oriented']
     },
     {
-        type : "",
-        list : [ ]
+        type : "Healthcare Jobs",
+        list : ['Dental Assistant Skills','Taking Blood Pressure',"Taking Dental Radiographs","Taking Dental Impressions","Using Digital Radiography","Dental Hygienist Skills","Stress Management","Cleaning and bathing patients","Receiving Patients","Maintaining Medical Equipment",'Administering Injections',"Customer Service","Preparing Patients","Knowledge of Medical Terms","High energy","Maintaining patient confidentiality","Microsoft office"]
     },
     {
         type : "",
