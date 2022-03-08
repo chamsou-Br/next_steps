@@ -13,6 +13,7 @@ import { useRouter } from 'next/router'
 
 function informations() {
   const {query} = useRouter()
+  
 
   return (
     <div className=' '>

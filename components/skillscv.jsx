@@ -89,7 +89,7 @@ const SkilllsCV = (props) => {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL disabled={skills.length == 0} />
+            <ContinueCL next={"/coverLetter/templates"} last={"/coverLetter/informations?step=skillsSoftwarJob"} disabled={skills.length == 0} />
 
 
         </div>
