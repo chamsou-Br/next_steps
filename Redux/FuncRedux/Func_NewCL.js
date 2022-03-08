@@ -10,28 +10,28 @@ export const AddJob = (typeJob,job) => (dispatch , getState) => {
 export const AddLastJob = (lastJob) => (dispatch , getState) => {
     dispatch({
         type :  ADD_JOB ,
-        payload : lastJob
+        payload : {lastJob}
     })
 }
 
 export const AddExperience = (experience) => (dispatch , getState) => {
     dispatch({
         type :  ADD_JOB ,
-        payload : experience
+        payload : {experience}
     })
 }
 
 export const AddSoftwarSkills = (softwarSkills) => (dispatch , getState) => {
     dispatch({
         type :  ADD_JOB ,
-        payload : softwarSkills
+        payload : {softwarSkills}
     })
 }
 
 export const AddSkills = (skills) => (dispatch , getState) => {
     dispatch({
         type :  ADD_JOB ,
-        payload : skills
+        payload : {skills}
     })
 }
 
