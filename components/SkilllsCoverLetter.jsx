@@ -7,11 +7,19 @@ import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import IntroModalCL from './CoverLetter/IntroModalCL';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddSkills } from '../Redux/FuncRedux/Func_NewCL';
 
 const SkilllsCoverLetter = (props) => {
+
+  // REDUX
+    const newCL = useSelector(state=> state.newCL)
+    const dispatch = useDispatch()
+
+  // STATE
   const [modalShow, setModalShow] = useState(false);
-  const [skills,setSkills] = useState([]);
-  const [skillsSelected , setSkillsSelected] = useState([]);
+  const [skills,setSkills] = useState(newCL.skills ? newCL.skills : []);
+  const [skillsSelected , setSkillsSelected] = useState(newCL.skills ? newCL.skills : []);
 
   // select skills function
   const onSelect = (skill) => {
@@ -24,7 +32,8 @@ const SkilllsCoverLetter = (props) => {
   }
 
   // consfirm selecte function
-  const onHandler = () => {
+  const onHandlerConfirmSkillsSelected = () => {
+    dispatch(AddSkills(skillsSelected))
     setSkills(skillsSelected);
     setModalShow(false)
   }
@@ -84,7 +93,7 @@ const SkilllsCoverLetter = (props) => {
             <MyVerticallyCenteredModal
                  show={modalShow} onHide={onHide }
                  intro={<IntroModalCL max={skillsSelected.length == 5} />  }
-                  disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
+                  disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandlerConfirmSkillsSelected}  
                   body={<SkillsSelected max={5} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
@@ -104,3 +113,4 @@ const SkilllsCoverLetter = (props) => {
 }
 
 export default SkilllsCoverLetter
+
