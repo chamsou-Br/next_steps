@@ -1,9 +1,13 @@
 import { useRouter } from 'next/router'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { AddJob } from '../../Redux/FuncRedux/Func_NewCL';
 
 
 function CoverLetterHome() {
     const router = useRouter();
+    const newCL = useSelector(state => state.newCL);
+    const dispatch = useDispatch(); 
   return (
     <div>
     <div className=' flex justify-center mt-12 flex-grow flex-shrink mb-2 '>
@@ -34,16 +38,17 @@ function CoverLetterHome() {
                 <span className=' text-lg font-bold tracking-wider '>Continue</span>
             </div>
 
-            <p className='text-slate-600 font-semibold text-xs tracking-wider mt-6'>
+            <p onClick={()=> dispatch(AddJob("IT","dev web"))} className='text-slate-600 font-semibold text-xs tracking-wider mt-6'>
                 By clicking "Continue" ,you agree to our 
                 <span className=' text-blue-500 font-bold hover:cursor-pointer hover:underline '> Terme and conditions </span>
                 and <span className=' text-blue-500 font-bold hover:underline'>privace policy</span>
             </p>
         </div>
-        <div className='w-0 md:w-1/2 xl:w-3/5 m-auto  '>
+        <div onClick={()=> console.log(newCL, "chamsou")} className='w-0 md:w-1/2 xl:w-3/5 m-auto  '>
             <img className=' m-auto'  src='./coverletter.svg' />
         </div>
     </div>
+    <p>{newCL.existe ? newCL.job : "error" }</p>
     </div>
   )
 }

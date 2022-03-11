@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Layout from '../components/Layout'
 import LoginPage from '../components/LoginPage'
 import RegistrPage from '../components/Registre'
+import wrapper from '../store';
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -46,4 +47,4 @@ function MyApp({ Component, pageProps }) {
   ) 
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)

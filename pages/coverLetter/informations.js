@@ -18,7 +18,6 @@ function informations() {
   return (
     <div className=' '>
         <PhaseCoverLetter data={2} />
-
         {query.step == "selectJob" ? (
             <SelectJobCL data={jobs} />
         ) : query.step == "lastJob" ? (

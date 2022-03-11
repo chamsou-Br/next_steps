@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from 'redux-thunk'
 import { NewCLReducer } from "./Redux/Reducres/newCL";
+import { createWrapper } from "next-redux-wrapper"
 
 
 
@@ -16,12 +17,12 @@ const rerducers = combineReducers({
     newCL : NewCLReducer ,
 })
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = compose;
 
-const store = createStore(
+const makeStore = () => createStore(
     rerducers , 
     initState ,
     composeEnhancer(applyMiddleware(logger , thunk))
 )
-
-export default store ;
+const wrapper = createWrapper(makeStore, { debug: true }); 
+export default  wrapper
