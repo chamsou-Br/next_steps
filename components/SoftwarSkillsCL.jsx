@@ -7,11 +7,20 @@ import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import softwarskills from '../data/softwarSkills';
 import IntroModalCL from './CoverLetter/IntroModalCL';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddSoftwarSkills } from '../Redux/FuncRedux/Func_NewCL';
 
 const SoftwarSkillsCL = (props) => {
+
+
+  // REDUX
+    const newCL = useSelector(state=> state.newCL)
+    const dispatch = useDispatch()
+
+  // STATE
   const [modalShow, setModalShow] = useState(false);
-  const [skillsSoftwar,setskillsSoftwar] = useState([]);
-  const [skillsSelected , setSkillsSelected] = useState([]);
+  const [skillsSoftwar,setskillsSoftwar] = useState(newCL.softwarSkills ? newCL.softwarSkills  : []);
+  const [skillsSelected , setSkillsSelected] = useState(newCL.softwarSkills ? newCL.softwarSkills  : []);
 
   // select skillsSoftwar function
   const onSelect = (skill) => {
@@ -23,10 +32,11 @@ const SoftwarSkillsCL = (props) => {
     }
   }
 
-  // consfirm selecte function
-  const onHandler = () => {
+  // confirm selecte function
+  const onHandlerConfirmSkillsSelected = () => {
     setskillsSoftwar(skillsSelected);
     setModalShow(false)
+    dispatch(AddSoftwarSkills(skillsSelected))
   }
 
   // onHide Modal 
@@ -51,8 +61,8 @@ const SoftwarSkillsCL = (props) => {
             {skillsSoftwar.length == 0 && (
                 <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>
                   
-                  <div className=' hover:text-blue-500 cursor-pointer flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
-                  <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
+                  <div className=' hover:text-blue-500 text-sl cursor-pointer tracking-wider font-bold flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
+                  <FaPlus className=' text-blue-500  text-center mr-3 mt-1 font-bold  ' /> 
                   Add your skillsSoftwar
                   </div>
                 </div>
@@ -83,7 +93,7 @@ const SoftwarSkillsCL = (props) => {
 
             <MyVerticallyCenteredModal
                  show={modalShow} onHide={onHide } intro={<IntroModalCL max={skillsSelected.length == 3} />  }
-                  disabled={skillsSelected.length == 0 && skillsSoftwar.length == 0}   onHandler={onHandler}  
+                  disabled={skillsSelected.length == 0 && skillsSoftwar.length == 0}   onHandler={onHandlerConfirmSkillsSelected}  
                   body={<SkillsSelected max={3} onSelect={onSelect} data={softwarskills} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
