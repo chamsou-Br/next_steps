@@ -7,11 +7,29 @@ import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import ContinueCL from './CoverLetter/ContinueCL';
 import YearExperience from './CoverLetter/YearExperience';
 import LevelExperience from './CoverLetter/LevelExperience';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddLevelNiveau } from '../Redux/FuncRedux/Func_NewCL';
 
 function ExperienceCL() {
-    const [level , setLevel] = useState(null);
-    const [yearExperience , setYearExperience] = useState(0);
-    const [lastJob , setLastJob ] = useState("Last Job");
+
+    // REDUX
+    const newCL = useSelector(state => state.newCL);
+    const dispatch = useDispatch()
+
+  // FUNCTIONS
+  const onHandlerSetLevel = (level )=> {
+    setLevel(level);
+    dispatch(AddLevelNiveau(level,0));
+  }
+
+  const onHandlerSetYearExperience = (yearExperience) => {
+    setYearExperience(yearExperience)
+    dispatch(AddLevelNiveau(level,yearExperience))
+  }
+
+    // STATE
+    const [level , setLevel] = useState(newCL.level ? newCL.level: null );
+    const [yearExperience , setYearExperience] = useState(newCL.yearExperience ? newCL.yearExperience : 0 );
 
   return (
     <div className="">
@@ -26,10 +44,10 @@ function ExperienceCL() {
                 </h1>
 
                 {/* Level Experience */}
-                <LevelExperience level={level} setLevel={(v) => setLevel(v)  } />
+                <LevelExperience level={level} setLevel={onHandlerSetLevel} />
                     
                 {/* Year Experience */}
-                <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={setYearExperience} />
+                <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={onHandlerSetYearExperience} />
                 
 
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />

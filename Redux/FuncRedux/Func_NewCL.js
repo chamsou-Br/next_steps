@@ -36,10 +36,10 @@ export const AddSkills = (skills) => (dispatch , getState) => {
     })
 }
 
-export const AddLevelNiveau = (level,niveau)  => (dispatch,getState) => {
+export const AddLevelNiveau = (level,yearExperience)  => (dispatch,getState) => {
     dispatch({
         type : ADD_LEVEL_NIVEAU ,
-        payload : {level,niveau}
+        payload : {level,yearExperience}
     })
 }
 

@@ -7,7 +7,7 @@ const data = {
     lastJob : '',
     experience : "",
     level : "",
-    niveau : "",
+    yearExperience : 0,
     softwarSkills : [],
     skills : []
 }
@@ -22,7 +22,7 @@ export const NewCLReducer = (state = data , Action) => {
         case ADD_EXPERIENCE :
             return {...state,experience: Action.payload.experience ,existe : true} 
         case ADD_LEVEL_NIVEAU :
-            return {...state,level: Action.payload.level, niveau : Action.payload.niveau ,existe : true} 
+            return {...state,level: Action.payload.level, yearExperience : Action.payload.yearExperience ,existe : true} 
         case ADD_SOFTWARSKILLS:
             return {...state,softwarSkills: Action.payload.softwarSkills ,existe : true} 
         case ADD_SKILLS :
