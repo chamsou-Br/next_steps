@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import ExperienceCL from '../../components/ExperienceCL'
 import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
 import jobs from '../../data/jobs'
-import { useRouter } from 'next/router'
 
-function informations() {
+function experience() {
   
 
   return (
@@ -16,4 +15,4 @@ function informations() {
 }
 
 
-export default informations 
+export default experience 
