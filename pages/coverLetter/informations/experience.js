@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ExperienceCL from '../../components/ExperienceCL'
-import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
-import jobs from '../../data/jobs'
+import ExperienceCL from '../../../components/ExperienceCL'
+import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import jobs from '../../../data/jobs'
 
 function experience() {
   

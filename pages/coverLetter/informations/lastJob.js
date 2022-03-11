@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
-import jobs from '../../data/jobs'
+import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import jobs from '../../../data/jobs'
 import LastJobCL from '../../../components/LastJobCL'
 
 function lastJob() {

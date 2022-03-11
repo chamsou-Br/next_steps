@@ -36,7 +36,7 @@ function SelectJobCL() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <ContinueCL next={"/coverLetter/informations?step=lastJob"} last={"/coverLetter/templates"} disabled={jobSelect == "Name of job"} />
+                <ContinueCL next={"/coverLetter/informations/lastJob"} last={"/coverLetter/templates"} disabled={jobSelect == "Name of job"} />
 
 
             </div>

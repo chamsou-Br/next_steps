@@ -35,7 +35,7 @@ function LastJobCL() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <ContinueCL next={"/coverLetter/informations?step=experience"} last={"/coverLetter/informations?step=selectJob"} disabled={lastJob == "Last Job"} />
+                <ContinueCL next={"/coverLetter/informations/experience"} last={"/coverLetter/informations/selectJob"} disabled={lastJob == "Last Job"} />
 
              </div>
 

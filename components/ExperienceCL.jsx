@@ -35,7 +35,7 @@ function ExperienceCL() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <ContinueCL next={"/coverLetter/informations?step=skillsSoftwarJob"} last={"/coverLetter/informations?step=lastJob"} disabled={yearExperience == 0 || level == null} />
+                <ContinueCL next={"/coverLetter/informations/skillsSoftwarJob"} last={"/coverLetter/informations/lastJob"} disabled={yearExperience == 0 || level == null} />
 
              </div>
 
