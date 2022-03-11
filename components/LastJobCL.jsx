@@ -5,11 +5,29 @@ import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import ContinueCL from './CoverLetter/ContinueCL';
 import StoriesLastWork from './CoverLetter/StoriesLastWork';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddExperience, AddLastJob } from '../Redux/FuncRedux/Func_NewCL';
 
 
 function LastJobCL() {
-    const [storieLastWork , setstorieLastWork] = useState("");
-    const [lastJob , setLastJob ] = useState("Last Job");
+
+    // REDUX
+    const newCL = useSelector(state=> state.newCL)
+    const dispatch = useDispatch()
+
+    // ONHANDLER FUNCTION 
+    const onHandlerSelectLastJob = (lastJob) =>  {
+      setLastJob(lastJob);
+      dispatch(AddLastJob(lastJob))
+    } 
+    const onHandlerGetExperience = (experience) => {
+      setstorieLastWork(experience);
+      dispatch(AddExperience(experience))
+    }
+
+    // STATE
+    const [storieLastWork , setstorieLastWork] = useState(newCL.experience ? newCL.experience :"");
+    const [lastJob , setLastJob ] = useState(newCL.lastJob ? newCL.lastJob :"Last Job");
 
   return (
     <div className="">
@@ -19,16 +37,16 @@ function LastJobCL() {
            
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
             <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
-                <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-6'>
+                <h1 onClick={()=> console.log(newCL)} className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-6'>
                     Your Last Work
                 </h1>
 
                 {/* Last Work */}
                 <div className='mt-6'>
-                  <DropDowns data={jobs} title={lastJob} onHandlerClick={setLastJob} disabled={false} />
+                  <DropDowns data={jobs} title={lastJob} onHandlerClick={onHandlerSelectLastJob} disabled={false} />
                 </div> 
                 
-                <StoriesLastWork onHandlerClick={setstorieLastWork} />
+                <StoriesLastWork value={storieLastWork} onHandlerClick={onHandlerGetExperience} />
 
 
 

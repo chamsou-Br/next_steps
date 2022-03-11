@@ -40,7 +40,7 @@ function SelectJobCL() {
 
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
             <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center overflow-visible pb-40  '>
-                <h1 className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
+                <h1 onClick={()=> console.log(newCL)} className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
                     The Job You are looking for !
                 </h1>
                 <div className='mt-6'>

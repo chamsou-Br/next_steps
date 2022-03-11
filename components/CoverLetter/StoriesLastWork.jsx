@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaPlus } from 'react-icons/fa'
 
 function StoriesLastWork(props) {
-    const [active,setActive] = useState(false)
+    const [active,setActive] = useState(props.value.length > 0)
   return (
     <div className=' mt-10'>
         {!active && (
@@ -15,7 +15,7 @@ function StoriesLastWork(props) {
         )}
 
         {active && (
-            <textarea type="text" autoFocus onChange={(e)=>props.onHandlerClick(e.target.value)} className=' placeholder:text-center text-gray-500 border-blue-500 text-sm tracking-wider font-semibold p-2 focus:outline-none h-40 w-3/6  border-dashed border-4' />
+            <textarea type="text" value={props.value} autoFocus onChange={(e)=>props.onHandlerClick(e.target.value)} className=' placeholder:text-center text-gray-500 border-blue-500 text-sm tracking-wider font-semibold p-2 focus:outline-none h-40 w-3/6  border-dashed border-4' />
         )}
         
     </div>
