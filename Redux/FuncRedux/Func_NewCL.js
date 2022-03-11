@@ -7,6 +7,7 @@ export const AddJob = (typeJob,job) => (dispatch , getState) => {
     })
 }
 
+
 export const AddLastJob = (lastJob) => (dispatch , getState) => {
     dispatch({
         type :  ADD_JOB ,

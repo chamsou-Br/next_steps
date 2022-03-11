@@ -48,7 +48,6 @@ function CoverLetterHome() {
             <img className=' m-auto'  src='./coverletter.svg' />
         </div>
     </div>
-    <p>{newCL.existe ? newCL.job : "error" }</p>
     </div>
   )
 }
