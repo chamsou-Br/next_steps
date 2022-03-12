@@ -1,40 +1,60 @@
 import React, { useState } from 'react'
 import MyVerticallyCenteredModal from './Modal';
-import SkillsSelected from './CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import IntroModalCV from './cv/IntroModalCV';
-import DropDowns from './CoverLetter/DropDowns';
-import jobs from '../data/jobs';
 import DropDownsLevelSkill from './cv/DropDownLevelSkill';
 import SkillsCVSelected from './cv/skillsCVSlected';
+import skillsData from '../data/skills';
 
 const levels = [0,1,2,3,4,5]
 const SkilllsCV = (props) => {
+
+  //show Modal
   const [modalShow, setModalShow] = useState(false);
-  const [typeSkills , setTypeSkills] = useState("type skills")
+  // TYPE OF SKILLS TO SELECT
+  const [typeSkills , setTypeSkills] = useState(skillsData[0].type)
+  // SKILLS WHICH WE CAN SELECTE IT
+  const [skillsToChoose,setSkillsToChoose] = useState(skillsData[0].list)
+  // SKILLS SELECTED CONFIRME
   const [skills,setSkills] = useState([]);
+  // SKILLS SELECTED SANS CONFIRM
   const [skillsSelected , setSkillsSelected] = useState([]);
 
   // select skills function
-  const onSelect = (skill) => {
-    if (skillsSelected.indexOf(skill) == -1) {
+  const onSelect = (skills,skill) => {
+    if (skills.indexOf(skill) == -1) {
         skillsSelected.length < 5 ? 
-          setSkillsSelected([...skillsSelected , skill]) : null
+          setSkillsSelected([...skillsSelected , {skill , level : 0}]) : null
     }else {
-      setSkillsSelected(skillsSelected.filter(item => item != skill))
+      setSkillsSelected(skillsSelected.filter(item => item.skill != skill))
     }
   }
 
   // consfirm selecte function
   const onHandler = () => {
-    const newSkills =  skillsSelected.map(item => {
-      return {skill : item , level : 0}
-    } )
-    setSkills(newSkills);
+    setSkills(skillsSelected);
     setModalShow(false)
+  }
+
+  // ONSET SKILLS TO CHOOOSE
+  const onHandlerSetSkillsToChoose = (type) => {
+    setTypeSkills(type)
+    const newSkillsList = skillsData.filter(item =>  item.type == type)
+    setSkillsToChoose(newSkillsList[0].list)
+  }
+
+  // onChangeLevel of skill
+  const onChangeLevel = (skill ,level) => {
+    const newSkills = skills.map(item=> {
+      if (item.skill != skill) return item
+      else {
+        return {skill  :skill , level : level}
+      }
+    } )
+    setSkills(newSkills)
   }
 
   // onHide Modal 
@@ -76,7 +96,7 @@ const SkilllsCV = (props) => {
                             <p className=' mt-1.5 text-blue-500 tracking-wider font-bold text-xs'>
                                 {item.skill}
                             </p>
-                            <DropDownsLevelSkill data={levels} title={item.level} disabled={false} />
+                            <DropDownsLevelSkill data={levels} onHandlerClick={onChangeLevel} title={item} disabled={false} />
                         </div>
               )})}
                <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={() => setModalShow(true)}>
@@ -92,9 +112,9 @@ const SkilllsCV = (props) => {
             )}
 
             <MyVerticallyCenteredModal
-                 show={modalShow} onHide={onHide } intro={<IntroModalCV title={typeSkills} onHandler={setTypeSkills} max={skillsSelected.length == 5} />  }
+                 show={modalShow} onHide={onHide } intro={<IntroModalCV title={typeSkills} onHandler={onHandlerSetSkillsToChoose} max={skillsSelected.length == 5} />  }
                   disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
-                  body={<SkillsCVSelected max={5} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
+                  body={<SkillsCVSelected max={5} onSelect={onSelect} data={skillsToChoose} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 

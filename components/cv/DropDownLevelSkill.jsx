@@ -13,7 +13,7 @@ function classNames(...classes) {
     <Menu as="div"   className=" relative inline-block text-left  ">
       <div className='w-24 flex'>
         <Menu.Button disabled={props.disabled} className="inline-flex relative w-full  rounded-md border border-gray-300 shadow-sm px-4 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100  ">
-          {props.title}
+          {props.title.level}
           <div className=' absolute right-3 top-1'>
              <ChevronDownIcon className=" ml-2 h-5 w-5 text-right" aria-hidden="true" />
           </div>
@@ -39,7 +39,8 @@ function classNames(...classes) {
                         href="#"
                         onClick={(e)=>{
                             e.preventDefault();
-                            props.onHandlerClick(item);
+                            props.onHandlerClick(props.title.skill,item);
+                            
                         }}
                         className={classNames(
                           active ? 'bg-gray-100 text-gray-900' : 'text-gray-500',
