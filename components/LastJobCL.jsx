@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropDowns from './CoverLetter/DropDowns'
 import jobs from "../data/jobs"
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
@@ -14,6 +14,12 @@ function LastJobCL() {
     // REDUX
     const newCL = useSelector(state=> state.newCL)
     const dispatch = useDispatch()
+    
+
+    // JOBS to CHOOSE
+    useEffect(()=>{
+
+    },[newCL])
 
     // ONHANDLER FUNCTION 
     const onHandlerSelectLastJob = (lastJob) =>  {
@@ -28,6 +34,7 @@ function LastJobCL() {
     // STATE
     const [storieLastWork , setstorieLastWork] = useState(newCL.experience ? newCL.experience :"");
     const [lastJob , setLastJob ] = useState(newCL.lastJob ? newCL.lastJob :"Last Job");
+    const [jobsToChoose,setJobsToChoose] = useState(jobs.filter(item => item.type == newCL.typeJob)[0].list) 
 
   return (
     <div className="">
@@ -43,7 +50,7 @@ function LastJobCL() {
 
                 {/* Last Work */}
                 <div className='mt-6'>
-                  <DropDowns data={jobs} title={lastJob} onHandlerClick={onHandlerSelectLastJob} disabled={false} />
+                  <DropDowns data={jobsToChoose} title={lastJob} onHandlerClick={onHandlerSelectLastJob} disabled={false} />
                 </div> 
                 
                 <StoriesLastWork value={storieLastWork} onHandlerClick={onHandlerGetExperience} />

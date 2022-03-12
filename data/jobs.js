@@ -62,7 +62,6 @@ const jobs = [
             {job : "Financial Advisor / Planner" , skills : []},
             {job : "Insurance" , skills : []},
             {job : "Investment Banking Analyst" , skills : []},
-            {job : "v" , skills : []},
         ]
     },
     {

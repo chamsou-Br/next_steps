@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MyVerticallyCenteredModal from './Modal';
 import classNames from 'classnames';
 import SkillsSelected from './CoverLetter/SkillsSelected';
@@ -9,6 +9,7 @@ import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import IntroModalCL from './CoverLetter/IntroModalCL';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddSkills } from '../Redux/FuncRedux/Func_NewCL';
+import skillsData from '../data/skills';
 
 const SkilllsCoverLetter = (props) => {
 
@@ -20,6 +21,8 @@ const SkilllsCoverLetter = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [skills,setSkills] = useState(newCL.skills ? newCL.skills : []);
   const [skillsSelected , setSkillsSelected] = useState(newCL.skills ? newCL.skills : []);
+  const [skillsToChoose,setSkillsToChoose] = useState(skillsData.filter(item => item.type == newCL.typeJob)[0].list)
+
 
   // select skills function
   const onSelect = (skill) => {
@@ -94,7 +97,7 @@ const SkilllsCoverLetter = (props) => {
                  show={modalShow} onHide={onHide }
                  intro={<IntroModalCL max={skillsSelected.length == 5} />  }
                   disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandlerConfirmSkillsSelected}  
-                  body={<SkillsSelected max={5} onSelect={onSelect} data={props.data} skillsSelected={skillsSelected}  /> } />
+                  body={<SkillsSelected max={5} onSelect={onSelect} data={skillsToChoose} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
