@@ -6,12 +6,8 @@ import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
 import IntroModalCV from './cv/IntroModalCV';
-import DropDowns from './CoverLetter/DropDowns';
-import jobs from '../data/jobs';
-import DropDownsLevelSkill from './cv/DropDownLevelSkill';
 
-const levels = [0,1,2,3,4,5]
-const SkilllsCV = (props) => {
+const WhoMe = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [typeSkills , setTypeSkills] = useState("type skills")
   const [skills,setSkills] = useState([]);
@@ -67,11 +63,10 @@ const SkilllsCV = (props) => {
               <div className=' relative border-dashed border-4 w-3/5  m-auto pt-8 pb-5 mb-10'>    
                   {skills.map((item,index) => {
                       return(
-                        <div key={index} className=' rounded-md flex justify-between w-80 m-auto mb-3 bg-white border border-gray-500 px-2 py-2'>
-                            <p className=' mt-1.5 text-blue-500 tracking-wider font-bold text-sm'>
+                        <div key={index} className=' w-80 m-auto mb-3 bg-white border border-gray-500 px-2 py-2'>
+                            <p className=' text-blue-500 tracking-wider font-bold text-sm'>
                                 {item}
                             </p>
-                            <DropDownsLevelSkill data={levels} title='level' disabled={false} />
                         </div>
               )})}
                <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={() => setModalShow(true)}>
@@ -107,4 +102,4 @@ const SkilllsCV = (props) => {
   )
 }
 
-export default SkilllsCV
+export default WhoMe

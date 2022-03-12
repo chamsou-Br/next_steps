@@ -16,7 +16,7 @@ function templates() {
             <PhaseCoverLetter data={1} />
             <h1 className=' mt-8 mb-12 text-center text-blue-500 font-bold tracking-wider lg:text-3xl md:text-xl text-lg'>Lat's start with  your Template</h1>
             <div>
-                <SwiperCoverLetter route="/cv/informations?step=skills" data={data} />
+                <SwiperCoverLetter route="/cv/informations" data={data} />
             </div>
 
     </div>
