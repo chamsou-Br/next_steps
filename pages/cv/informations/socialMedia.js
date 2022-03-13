@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
-import WhoMe from '../../../components/whoMe'
+import SelectSocialMedia from '../../../components/selectSocialMedia'
 
 function informations() {
 
   return (
     <div className=' '>
         <PhaseCoverLetter data={2} />
-        <WhoMe />
+        <SelectSocialMedia />
         
 
     </div>
