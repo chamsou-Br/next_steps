@@ -46,7 +46,7 @@ const SoftwarSkillsCL = (props) => {
   }
   
   return (
-    <div className=" h-screen">
+    <div className=" min-h-screen">
 
         {/* Help Cover letter */}
         <HelpCL_Small title="skillsSoftwar in this Job" desc="This is a page to let you select  your skillsSoftwar in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skillsSoftwar ,you can select at most 5 skillsSoftwar . " />
@@ -59,7 +59,7 @@ const SoftwarSkillsCL = (props) => {
                 Your skills Softwar in this Job 
             </h1>
             {skillsSoftwar.length == 0 && (
-                <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>
+                <div className=' h-60 w-11/12 md:w-3/5  m-auto text-center flex justify-center border-dashed border-4  bg-'>
                   
                   <div className=' hover:text-blue-500 text-sl cursor-pointer tracking-wider font-bold flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
                   <FaPlus className=' text-blue-500  text-center mr-3 mt-1 font-bold  ' /> 
@@ -70,7 +70,7 @@ const SoftwarSkillsCL = (props) => {
 
             {skillsSoftwar.length > 0 && (
               <>              
-              <div className=' relative border-dashed border-4 w-3/5  m-auto pt-8 pb-5 mb-10'>    
+              <div className=' relative border-dashed border-4 w-11/12  md:w-3/5   m-auto pt-8 pb-5 mb-10'>    
                   {skillsSoftwar.map((item,index) => {
                       return(
                         <div key={index} className=' w-80 m-auto mb-3 bg-white border border-gray-500 px-2 py-2'>

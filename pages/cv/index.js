@@ -4,7 +4,7 @@ import {useRouter} from "next/router"
 function cvHome() {
     const router = useRouter();
   return (
-    <div>
+    <div className=' min-h-screen'>
     <div className=' flex justify-center mt-12 flex-grow flex-shrink mb-2 '>
         <div className=" md:w-1/2 xl:w-2/5 mx-4 sm:mx-20 md:ml-12 lg:ml-16 xl:ml-24 " >
             <h1 className=' font-bold text-3xl lg:text-4xl xl:text-5xl tracking-wide text-gray-700 mb-6'>Let's get started</h1>

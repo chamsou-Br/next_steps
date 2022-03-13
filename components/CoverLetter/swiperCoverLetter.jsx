@@ -24,7 +24,7 @@ const SwiperCoverLetter = (props) => {
   }, []);
 
   return (
-    <div className='container-snap flex justify-center '>
+    <div className='container-snap flex justify-center  '>
     <Swiper
        spaceBetween={10}
        slidesPerView={width > 1024 ? 3 : (width > 768 ? 2 : 1)}

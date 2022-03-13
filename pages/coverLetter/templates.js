@@ -12,7 +12,7 @@ const data = [
 
 function templates() {
   return (
-    <div className='container-snap'>
+    <div className='container-snap min-h-screen'>
             <PhaseCoverLetter data={1} />
             <h1 className=' mt-8 mb-12 text-center text-blue-500 font-bold tracking-wider lg:text-3xl md:text-xl text-lg'>Lat's start with  your Template</h1>
             <div>

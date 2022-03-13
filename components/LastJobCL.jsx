@@ -32,6 +32,7 @@ function LastJobCL() {
     }
 
     // STATE
+    
     const [storieLastWork , setstorieLastWork] = useState(newCL.experience ? newCL.experience :"");
     const [lastJob , setLastJob ] = useState(newCL.lastJob ? newCL.lastJob :"Last Job");
     const [jobsToChoose,setJobsToChoose] = useState(jobs.filter(item => item.type == newCL.typeJob)[0].list) 

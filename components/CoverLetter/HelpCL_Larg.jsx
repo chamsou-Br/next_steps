@@ -2,7 +2,7 @@ import React from 'react'
 
 function HelpCL_Larg({title , desc}) {
   return (
-    <div className='hidden lg:block lg:w-1/3 border-l   pl-2 h-full pb-10'>
+    <div className='hidden lg:block lg:w-1/3 border-l mt-16   pl-2 h-full pb-10'>
     <div className=' w-full flex justify-center'>
          <img src='/idea.jpg' className=' w-32' />
     </div>

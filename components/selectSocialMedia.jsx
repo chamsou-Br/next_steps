@@ -55,7 +55,7 @@ const SelectSocialMedia = (props) => {
                 Your Social Medias 
             </h1>
             {socialMedias.length == 0 && (
-                <div className=' h-60 w-3/5 m-auto text-center flex justify-center border-dashed border-4  bg-'>                  
+                <div className=' h-60 w-11/12 md:w-3/5  m-auto text-center flex justify-center border-dashed border-4  bg-'>                  
                   <div className=' hover:text-blue-500 text-sl cursor-pointer tracking-wider font-bold flex justify-center m-auto' variant="primary" onClick={()=>onAddSocialMedia()} >
                     <FaPlus className=' text-blue-500  text-center mr-3 mt-1 font-bold  ' /> 
                     Add your social Medias
@@ -94,7 +94,7 @@ const SelectSocialMedia = (props) => {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/coverLetter/informations/skillsJob"} last={"/coverLetter/informations/experience"} disabled={socialMedias.length == 0} />
+            <ContinueCL next={"/cv/informations/skills"} last={"/coverLetter/informations/experience"} disabled={socialMedias.length == 0} />
 
 
         </div>
