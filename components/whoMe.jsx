@@ -26,7 +26,7 @@ const WhoMe = (props) => {
 
   
   return (
-    <div className=" h-screen">
+    <div className=" min-h-screen">
 
         {/* Help Cover letter */}
         <HelpCL_Small title="Who are you !" desc="This is a page to let you introduce your self ,give us your firstname, lastname , email, phone and other information . u cant contiue if you don't fill the boxes." />
