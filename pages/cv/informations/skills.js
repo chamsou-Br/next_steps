@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
-import jobs from '../../data/jobs'
-import SkilllsCV from '../../components/skillscv'
-import WhoMe from '../../components/whoMe'
+import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import jobs from '../../../data/jobs'
+import SkilllsCV from '../../../components/skillscv'
 
 function informations() {
 

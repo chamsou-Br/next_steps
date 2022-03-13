@@ -67,7 +67,7 @@ const SkilllsCV = (props) => {
     <div className=" h-screen">
 
         {/* Help Cover letter */}
-        <HelpCL_Small title="Skills in this Job" desc="This is a page to let you select  your skills in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . " />
+        <HelpCL_Small title="Your skills" desc="This is a page to let you select  your skills to make your cv more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . and you should slect your level a each skill . " />
 
      {/* Select Skiils */}
 
@@ -114,18 +114,18 @@ const SkilllsCV = (props) => {
             <MyVerticallyCenteredModal
                  show={modalShow} onHide={onHide } intro={<IntroModalCV title={typeSkills} onHandler={onHandlerSetSkillsToChoose} max={skillsSelected.length == 5} />  }
                   disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
-                  body={<SkillsCVSelected max={5} onSelect={onSelect} data={skillsToChoose} skillsSelected={skillsSelected}  /> } />
+                  body={<SkillsCVSelected max={15} onSelect={onSelect} data={skillsToChoose} skillsSelected={skillsSelected}  /> } />
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/templates"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
+            <ContinueCL next={"/cv/informations/personnalInformation"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
 
 
         </div>
 
           {/* Help Cover letter */}
-         <HelpCL_Larg title="Skills in this Job" desc="This is a page to let you select  your skills in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . " />
+         <HelpCL_Larg title="Your skills" desc="This is a page to let you select  your skills to make your cv more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 15 skills . and you should slect your level a each skill . " />
 
     </div>
 </div>
