@@ -30,11 +30,9 @@ const SelectWorkHistory = (props) => {
     if (isEdit != -1) {
       const newWorks = workHistory.map((item,index)=>{
         if (index != isEdit){
-          console.log("kkk")
           return item 
         } 
         else {
-          console.log("chms")
           return {title , desc}
         } 
      })
@@ -96,7 +94,7 @@ const SelectWorkHistory = (props) => {
                   {workHistory.map((item,index) => {
                       return(
                         <div key={index} className=' flex justify-center m-auto mb-1  px-2 py-2'>
-                            <div className=' border-2 border-blue-500 px-4 py-2 lg:w-2/3 rounded-sm '>
+                            <div className=' border-2 border-blue-500 px-4 py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
                               <h1 className=' text-left font-bold tracking-wider '>{item.title}</h1>
                               <p className=' text-left  tracking-wide text-xs font-bold text-gray-500'>{item.desc}</p>
                             </div>
