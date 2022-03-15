@@ -10,7 +10,7 @@ import SkillsCVSelected from './cv/skillsCVSlected';
 import skillsData from '../data/skills';
 
 const levels = [0,1,2,3,4,5]
-const SkilllsCV = (props) => {
+const SelectWorkHistory = (props) => {
 
   //show Modal
   const [modalShow, setModalShow] = useState(false);
@@ -119,7 +119,7 @@ const SkilllsCV = (props) => {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/workHistory"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
+            <ContinueCL next={"/cv/informations/school"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
 
         </div>
 
@@ -132,4 +132,5 @@ const SkilllsCV = (props) => {
   )
 }
 
-export default SkilllsCV
+ 
+export default SelectWorkHistory;
