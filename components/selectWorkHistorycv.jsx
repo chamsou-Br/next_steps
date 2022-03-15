@@ -93,21 +93,21 @@ const SelectWorkHistory = (props) => {
               <div className=' relative border-dashed border-4 w-11/12  md:w-4/5  m-auto pt-8 pb-5 mb-10'>    
                   {workHistory.map((item,index) => {
                       return(
-                        <div key={index} className=' flex justify-center m-auto mb-1  px-2 py-2'>
-                            <div className=' border-2 border-blue-500 px-4 py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
-                              <h1 className=' text-left font-bold tracking-wider '>{item.title}</h1>
-                              <p className=' text-left  tracking-wide text-xs font-bold text-gray-500'>{item.desc}</p>
-                            </div>
-                            <div className=' flex justify-center ml-3'>
-                              <FaEdit size={20} className=' text-gray-300 font-bold  text-center m-auto mr-2 hover:text-blue-500' 
-                                      onClick={()=>onEDITWotkHistory(item,index)}/>
-                              <FaTrash size={20} className=' text-gray-300 font-bold text-center m-auto hover:text-blue-500' 
-                                      onClick={()=>onRemoveWotkHistory(index)}/>
-                            </div>
-
+                            <div className=' border-2 border-blue-500 px-4 m-auto py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
+                              <div className='mb-2 flex justify-between'>
+                                  <h1 className='  text-left font-bold tracking-wider '>{item.title}</h1>
+                                  <div className=' flex justify-center ml-3'>
+                                      <FaEdit size={20} className=' text-gray-300 font-bold  text-center m-auto mr-2 hover:text-blue-500' 
+                                              onClick={()=>onEDITWotkHistory(item,index)}/>
+                                      <FaTrash size={20} className=' text-gray-300 font-bold text-center m-auto hover:text-blue-500' 
+                                              onClick={()=>onRemoveWotkHistory(index)}/>
+                                  </div>
+                              </div>
+                              <hr />
+                              <p className=' mt-2 text-left  tracking-wide text-xs font-bold text-gray-500'>{item.desc}</p>
                         </div>
               )})}
-               <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={()=>setModalShow(true)}  >
+               <div className='  hover:text-blue-500 mt-3 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={()=>setModalShow(true)}  >
                      {workHistory.length < 5 ? (
                       <>
                        <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
