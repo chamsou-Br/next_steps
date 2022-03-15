@@ -1,136 +1,150 @@
 import React, { useState } from 'react'
-import MyVerticallyCenteredModal from './Modal';
-import { FaEdit, FaPlus } from 'react-icons/fa';
+import { FaTrash, FaPlus ,FaEdit} from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
-import IntroModalCV from './cv/IntroModalCV';
-import DropDownsLevelSkill from './cv/DropDownLevelSkill';
-import SkillsCVSelected from './cv/skillsCVSlected';
-import skillsData from '../data/skills';
+import DropDownsSocialMedia from './cv/DropDownSocialMedia';
+import MyVerticallyCenteredModal from './Modal';
+import AnotherWorkHistorySelected from './cv/AnotherWorkHistorySelected';
 
-const levels = [0,1,2,3,4,5]
+const Medias = [
+    "Twitter" , "LinkedIn" , "Website" , "Github"
+]
+
 const SelectWorkHistory = (props) => {
 
-  //show Modal
-  const [modalShow, setModalShow] = useState(false);
-  // TYPE OF SKILLS TO SELECT
-  const [typeSkills , setTypeSkills] = useState(skillsData[0].type)
-  // SKILLS WHICH WE CAN SELECTE IT
-  const [skillsToChoose,setSkillsToChoose] = useState(skillsData[0].list)
-  // SKILLS SELECTED CONFIRME
-  const [skills,setSkills] = useState([]);
-  // SKILLS SELECTED SANS CONFIRM
-  const [skillsSelected , setSkillsSelected] = useState([]);
-
-  // select skills function
-  const onSelect = (skills,skill) => {
-    if (skills.indexOf(skill) == -1) {
-        skillsSelected.length < 5 ? 
-          setSkillsSelected([...skillsSelected , {skill , level : 0}]) : null
-    }else {
-      setSkillsSelected(skillsSelected.filter(item => item.skill != skill))
-    }
+  const [workHistory,setworkHistory] = useState([]);
+  const [isEdit,setIsEdit] = useState(-1);
+  const [title,setTitle] = useState('')
+  const [desc , setDesc] = useState("")
+    //show Modal
+    const [modalShow, setModalShow] = useState(false);
+  
+  // close Modal
+  const onHide = () => {
+    setModalShow(false)
   }
-
   // consfirm selecte function
   const onHandler = () => {
-    setSkills(skillsSelected);
+
+    if (isEdit != -1) {
+      const newWorks = workHistory.map((item,index)=>{
+        if (index != isEdit){
+          console.log("kkk")
+          return item 
+        } 
+        else {
+          console.log("chms")
+          return {title , desc}
+        } 
+     })
+      setworkHistory(newWorks)
+    }else {
+      setworkHistory([...workHistory , {title  , desc }])
+    }
+    console.log(workHistory)
+    setTitle('');
+    setDesc("");
+    setIsEdit(-1)
     setModalShow(false)
   }
 
-  // ONSET SKILLS TO CHOOOSE
-  const onHandlerSetSkillsToChoose = (type) => {
-    setTypeSkills(type)
-    const newSkillsList = skillsData.filter(item =>  item.type == type)
-    setSkillsToChoose(newSkillsList[0].list)
+  // ONREMOVE SOCIAL MEDIA
+  const onRemoveWotkHistory = (i) => {
+    const newWorkHistory = workHistory.filter((item ,index)=>{
+        if (i != index ) return item
+    })
+    setworkHistory(newWorkHistory)      
+  }
+   // ONEDIT SOCIAL MEDIA
+   const onEDITWotkHistory = (item,index) => {
+    setDesc(item.desc)
+    setTitle(item.title)
+    setIsEdit(index);
+    setModalShow(true)
+    
   }
 
-  // onChangeLevel of skill
-  const onChangeLevel = (skill ,level) => {
-    const newSkills = skills.map(item=> {
-      if (item.skill != skill) return item
-      else {
-        return {skill  :skill , level : level}
-      }
-    } )
-    setSkills(newSkills)
-  }
 
-  // onHide Modal 
-  const onHide = () => {
-    setModalShow(false);
-    setSkillsSelected(skills)
-  }
+
   
   return (
     <div className=" min-h-screen">
 
         {/* Help Cover letter */}
-        <HelpCL_Small title="Your skills" desc="This is a page to let you select  your skills to make your cv more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 5 skills . and you should slect your level a each skill . " />
+        <HelpCL_Small title="Your work History " desc="This is a page to let you Add  your work History .It's best to select all your great experience and wotk history, you can select at most 6 workHistory . " />
 
      {/* Select Skiils */}
 
     <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
-        <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
-            <h1 onClick={()=> console.log(skills,skillsSelected)} className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
-                Your Skills in this Job 
+        <div className=' w-full lg:w-full xl:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
+            <h1 onClick={()=>console.log(workHistory)} className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
+                Your Work History
             </h1>
-            {skills.length == 0 && (
-                <div className=' h-60 w-11/12 md:w-3/5 lg:w-4/5 m-auto text-center flex justify-center border-dashed border-4  '>
-                  
-                  <div className=' hover:text-blue-500 font-bold text-sm tracking-wider cursor-pointer flex justify-center m-auto' variant="primary" onClick={() => setModalShow(true)}>
-                  <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
-                  Add your skills
+            {workHistory.length == 0 && (
+                <div className=' h-60 w-11/12 md:w-3/5  m-auto text-center flex justify-center border-dashed border-4  bg-'>                  
+                  <div className=' hover:text-blue-500 text-sl cursor-pointer tracking-wider font-bold flex justify-center m-auto' variant="primary" onClick={()=>setModalShow(true)}  >
+                    <FaPlus className=' text-blue-500  text-center mr-3 mt-1 font-bold  ' /> 
+                    Add Another position
                   </div>
                 </div>
             )}
 
-            {skills.length > 0 && (
+            {workHistory.length > 0 && (
               <>              
-              <div className=' relative border-dashed border-4 w-11/12 md:w-3/5   m-auto pt-8 pb-5 mb-10'>    
-                  {skills.map((item,index) => {
-                     
+              <div className=' relative border-dashed border-4 w-11/12  md:w-4/5  m-auto pt-8 pb-5 mb-10'>    
+                  {workHistory.map((item,index) => {
                       return(
-                        <div key={index} className=' rounded-md flex justify-between w-80 m-auto mb-3 bg-white border border-gray-500 px-2 py-2'>
-                            <p className=' mt-1.5 text-blue-500 tracking-wider font-bold text-xs'>
-                                {item.skill}
-                            </p>
-                            <DropDownsLevelSkill data={levels} onHandlerClick={onChangeLevel} title={item} disabled={false} />
+                        <div key={index} className=' flex justify-center m-auto mb-1  px-2 py-2'>
+                            <div className=' border-2 border-blue-500 px-4 py-2 lg:w-2/3 rounded-sm '>
+                              <h1 className=' text-left font-bold tracking-wider '>{item.title}</h1>
+                              <p className=' text-left  tracking-wide text-xs font-bold text-gray-500'>{item.desc}</p>
+                            </div>
+                            <div className=' flex justify-center ml-3'>
+                              <FaEdit size={20} className=' text-gray-300 font-bold  text-center m-auto mr-2 hover:text-blue-500' 
+                                      onClick={()=>onEDITWotkHistory(item,index)}/>
+                              <FaTrash size={20} className=' text-gray-300 font-bold text-center m-auto hover:text-blue-500' 
+                                      onClick={()=>onRemoveWotkHistory(index)}/>
+                            </div>
+
                         </div>
               )})}
-               <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={() => setModalShow(true)}>
-                     {skills.length < 5 ? (
-                        <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
-                     ) : (<FaEdit className=' text-blue-500 font-bold text-center mr-3 mt-1' /> )} 
-                   
-                     {skills.length < 5 ? "Add your skills" : "Modify your skills"} 
+               <div className='  hover:text-blue-500 cursor-pointer flex justify-center text-sm font-bold tracking-wider' variant="primary" onClick={()=>setModalShow(true)}  >
+                     {workHistory.length < 5 ? (
+                      <>
+                       <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
+                        "Add your workHistory"
+                        </>
+                     ) : null } 
+
                 </div>
               </div>
 
               </>
             )}
 
-            <MyVerticallyCenteredModal
-                 show={modalShow} onHide={onHide } intro={<IntroModalCV title={typeSkills} onHandler={onHandlerSetSkillsToChoose} max={skillsSelected.length == 5} />  }
-                  disabled={skillsSelected.length == 0 && skills.length == 0}  onHandler={onHandler}  
-                  body={<SkillsCVSelected max={15} onSelect={onSelect} data={skillsToChoose} skillsSelected={skillsSelected}  /> } />
+                 <MyVerticallyCenteredModal
+                 show={modalShow} onHide={onHide } intro={<h1>Work History</h1>  }
+                  disabled={false}  onHandler={onHandler}  
+                  body={<AnotherWorkHistorySelected setTitle={setTitle} title={title} desc={desc} setDesc={setDesc} isEdit={isEdit} /> } />
+
 
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/school"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
+            <ContinueCL next={"/cv/informations/skills"} last={"/coverLetter/informations/experience"} disabled={false} />
+
 
         </div>
 
           {/* Help Cover letter */}
-            <HelpCL_Larg title="Your skills" desc="This is a page to let you select  your skills to make your cv more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 15 skills . and you should slect your level a each skill . " />
-        
+         <HelpCL_Larg title="Your Social Medias" desc="This is a page to let you select  your workHistory or porfolio  .It's best to choose only one account for a social network, you can select at most 4 workHistory . " />
 
     </div>
 </div>
   )
 }
+ 
 
  
 export default SelectWorkHistory;
