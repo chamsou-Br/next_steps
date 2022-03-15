@@ -29,14 +29,14 @@ const SelectScholDegree = (props) => {
     <div className=" min-h-screen">
 
         {/* Help Cover letter */}
-        <HelpCL_Small title="Who are you !" desc="This is a page to let you introduce your self ,give us your firstname, lastname , degree, fieldofstudy and other information . u cant contiue if you don't fill the boxes." />
+        <HelpCL_Small title="Education Section" desc="This is a page to let you give us your schholName , his location , your degree, fieldofstudy and other information . u cant contiue if you don't fill the boxes." />
 
      {/* Select Skiils */}
 
     <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
         <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-2 text-center h-full pb-40   '>
             <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
-                Your Personnal Information
+                Your Education 
             </h1>
 
             {/* introduce his self 
@@ -52,7 +52,7 @@ const SelectScholDegree = (props) => {
         </div>
 
           {/* Help Cover letter */}
-         <HelpCL_Larg title="Who are you !" desc="This is a page to let you introduce your self ,give us your firstname, lastname , degree, fieldofstudy and other information . u cant contiue if you don't fill the boxes." />
+         <HelpCL_Larg title="Education Section" desc="This is a page to let you give us your schholName , his location , your degree, fieldofstudy and other information . u cant contiue if you don't fill the boxes." />
 
     </div>
 </div>
