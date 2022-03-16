@@ -134,7 +134,7 @@ const SelectCertaficates = (props) => {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/summary"} last={"/coverLetter/informations/experience"} disabled={false} />
+            <ContinueCL next={"/cv/informations/school"} last={"/coverLetter/informations/experience"} disabled={false} />
 
 
         </div>

@@ -39,7 +39,7 @@ function classNames(...classes) {
                         href="#"
                         onClick={(e)=>{
                             e.preventDefault();
-                            props.onHandlerClick(props.title.skill,item);
+                            props.onHandlerClick(props.title.skill? props.title.skill : props.title.language,item);
                             
                         }}
                         className={classNames(

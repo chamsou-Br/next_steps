@@ -46,7 +46,7 @@ const SelectScholDegree = (props) => {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/socialMedia"} last={"/coverLetter/templates"} disabled={disabledContinue} />
+            <ContinueCL next={"/cv/informations/langues"} last={"/coverLetter/templates"} disabled={disabledContinue} />
 
 
         </div>
