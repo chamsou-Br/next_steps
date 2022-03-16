@@ -119,7 +119,7 @@ const SelectLangauges = (props) => {
         </div>
 
           {/* Help Cover letter */}
-            <HelpCL_Larg title="Your skills" desc="This is a page to let you select  your skills to make your cv more stronger  .You can't continue if you don't choose at least one skills ,you can select at most 15 skills . and you should slect your level a each skill . " />
+            <HelpCL_Larg title="Languages" desc="This is a page to let you select   The languages you speak  .You can't continue if you don't choose at least one language ,you can select at most 4 skills . and you should slect your level a each language . " />
         
 
     </div>
