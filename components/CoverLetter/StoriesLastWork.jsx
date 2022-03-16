@@ -9,7 +9,7 @@ function StoriesLastWork(props) {
                 <div className=' h-40 w-11/12 md:w-3/5 m-auto text-center flex justify-center border-dashed border-4  '>       
                 <div className=' hover:text-blue-500 font-bold text-sm tracking-wider cursor-pointer flex justify-center m-auto' variant="primary" onClick={() => setActive(true)}>
                 <FaPlus className=' text-blue-500 font-bold text-center mr-3 mt-1' /> 
-                Experience in Last Work
+               {props.title ? props.title : "Experience in Last Work"} 
                 </div>
               </div>
         )}
