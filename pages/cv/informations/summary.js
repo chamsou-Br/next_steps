@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
-import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small';
-import HelpCL_Larg from '../../../components/CoverLetter/HelpCL_Larg';
+import HelpCL_Small from '../../../components/shared/HelpCL_Small';
+import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import StoriesLastWork from '../../../components/CoverLetter/StoriesLastWork';
 

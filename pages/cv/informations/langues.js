@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import { FaEdit, FaPlus } from 'react-icons/fa';
-import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small';
+import HelpCL_Small from '../../../components/shared/HelpCL_Small';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
-import HelpCL_Larg from '../../../components/CoverLetter/HelpCL_Larg';
+import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import DropDownsLevelSkill from '../../../components/cv/DropDownLevelSkill';
 import langaguesdata from '../../../data/languages';
 import LanguagesCVselected from '../../../components/cv/languagesCVselected';

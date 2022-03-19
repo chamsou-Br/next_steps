@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small';
-import HelpCL_Larg from '../../../components/CoverLetter/HelpCL_Larg';
+import HelpCL_Small from '../../../components/shared/HelpCL_Small';
+import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import YearExperience from '../../../components/CoverLetter/YearExperience';
 import LevelExperience from '../../../components/CoverLetter/LevelExperience';

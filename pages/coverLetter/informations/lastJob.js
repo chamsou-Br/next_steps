@@ -2,8 +2,8 @@ import PhaseStep from '../../../components/shared/PhaseStep'
 import React, { useEffect, useState } from 'react'
 import DropDowns from '../../../components/CoverLetter/DropDowns'
 import jobs from "../../../data/jobs"
-import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small';
-import HelpCL_Larg from '../../../components/CoverLetter/HelpCL_Larg';
+import HelpCL_Small from '../../../components/shared/HelpCL_Small';
+import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import StoriesLastWork from '../../../components/CoverLetter/StoriesLastWork';
 import { useDispatch, useSelector } from 'react-redux';
