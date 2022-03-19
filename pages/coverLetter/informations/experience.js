@@ -1,15 +1,67 @@
 import React, { useState } from 'react'
-import ExperienceCL from '../../../components/ExperienceCL'
+import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small';
+import HelpCL_Larg from '../../../components/CoverLetter/HelpCL_Larg';
+import ContinueCL from '../../../components/CoverLetter/ContinueCL';
+import YearExperience from '../../../components/CoverLetter/YearExperience';
+import LevelExperience from '../../../components/CoverLetter/LevelExperience';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddLevelNiveau } from '../../../Redux/FuncRedux/Func_NewCL';
 import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
-import jobs from '../../../data/jobs'
+
+
 
 function experience() {
   
+    // REDUX
+    const newCL = useSelector(state => state.newCL);
+    const dispatch = useDispatch()
+
+  // FUNCTIONS
+  const onHandlerSetLevel = (level )=> {
+    setLevel(level);
+    dispatch(AddLevelNiveau(level,0));
+  }
+
+  const onHandlerSetYearExperience = (yearExperience) => {
+    setYearExperience(yearExperience)
+    dispatch(AddLevelNiveau(level,yearExperience))
+  }
+
+    // STATE
+    const [level , setLevel] = useState(newCL.level ? newCL.level: null );
+    const [yearExperience , setYearExperience] = useState(newCL.yearExperience ? newCL.yearExperience : 0 );
+
 
   return (
     <div className=' '>
         <PhaseCoverLetter data={2} />
-        <ExperienceCL data={jobs} />        
+            {/* Help Cover letter */}
+      <HelpCL_Small title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
+           
+           <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
+               <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
+                   <h1 className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
+                       Your Level in this Job 
+                   </h1>
+   
+                   {/* Level Experience */}
+                   <LevelExperience level={level} setLevel={onHandlerSetLevel} />
+                       
+                   {/* Year Experience */}
+                   <YearExperience disabled={ level == null} active={yearExperience} setYearExperience={onHandlerSetYearExperience} />
+                   
+   
+                   <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
+   
+                   {/* Button back contine */}
+                   <ContinueCL next={"/coverLetter/informations/skillsSoftwarJob"} last={"/coverLetter/informations/lastJob"} disabled={yearExperience == 0 || level == null} />
+   
+                </div>
+   
+                {/* Help Cover letter */}
+                <HelpCL_Larg title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
+              
+           </div>   
     </div>
   )
 }

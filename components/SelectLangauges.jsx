@@ -4,10 +4,7 @@ import { FaEdit, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from './CoverLetter/HelpCL_Small';
 import ContinueCL from './CoverLetter/ContinueCL';
 import HelpCL_Larg from './CoverLetter/HelpCL_Larg';
-import IntroModalCV from './cv/IntroModalCV';
 import DropDownsLevelSkill from './cv/DropDownLevelSkill';
-import SkillsCVSelected from './cv/skillsCVSlected';
-import skillsData from '../data/skills';
 import langaguesdata from '../data/languages';
 import LanguagesCVselected from './cv/languagesCVselected';
 
