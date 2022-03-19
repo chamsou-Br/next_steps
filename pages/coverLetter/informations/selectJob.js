@@ -7,8 +7,7 @@ import HelpCL_Small from '../../../components/CoverLetter/HelpCL_Small'
 import ContinueCL from '../../../components/CoverLetter/ContinueCL'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddJob } from '../../../Redux/FuncRedux/Func_NewCL'
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
-
+import PhaseStep from '../../../components/shared/PhaseStep'
 
 function selectJob() {
   
@@ -39,7 +38,7 @@ function selectJob() {
 
   return (
     <div className=' min-h-screen'>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
           {/* Help Cover letter /> */}
           <HelpCL_Small title="Select a Job" desc="This is a page to select the job you want apply for  ,You should choose type of the job you are want .After that we will show all the jobs of categorie that you choose ,select your job name and let's go further .You can't continue if you don't select one . " />
 

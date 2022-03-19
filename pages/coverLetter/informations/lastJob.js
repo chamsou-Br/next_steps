@@ -1,4 +1,4 @@
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 import React, { useEffect, useState } from 'react'
 import DropDowns from '../../../components/CoverLetter/DropDowns'
 import jobs from "../../../data/jobs"
@@ -39,7 +39,7 @@ function lastJob() {
   
   return (
     <div className=' '>
-      <PhaseCoverLetter data={2} />
+      <PhaseStep data={2} />
       
       {/* Help Cover letter */}
       <HelpCL_Small title="Last Work" desc="This is a page to let you give us the name of your last work and create some description about it ,if you are a student u can wrtie about your study . " />

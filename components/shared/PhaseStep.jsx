@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-function PhaseCoverLetter(props) {
+function PhaseStep(props) {
   return (
     <div className=' mx-1 sm:mx-0 flex justify-center mt-3'>
         <div className=' flex text-center'>
@@ -55,4 +55,4 @@ function PhaseCoverLetter(props) {
   )
 }
 
-export default PhaseCoverLetter
+export default PhaseStep

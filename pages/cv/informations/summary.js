@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 import SummaryCV from '../../../components/summaryCV'
 
 function informations() {
 
   return (
     <div className=' '>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
         <SummaryCV />
         
 

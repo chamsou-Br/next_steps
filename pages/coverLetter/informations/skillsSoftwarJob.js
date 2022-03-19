@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 import MyVerticallyCenteredModal from '../../../components/Modal'
 import SkillsSelected from '../../../components/CoverLetter/SkillsSelected';
 import { FaEdit, FaPlus } from 'react-icons/fa';
@@ -49,7 +49,7 @@ const onHide = () => {
 
   return (
     <div className=' min-h-screen '>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
         
         {/* Help Cover letter */}
         <HelpCL_Small title="skillsSoftwar in this Job" desc="This is a page to let you select  your skillsSoftwar in this job to make your cover letter more stronger  .You can't continue if you don't choose at least one skillsSoftwar ,you can select at most 5 skillsSoftwar . " />

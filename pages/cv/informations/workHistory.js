@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 import SelectWorkHistory from '../../../components/selectWorkHistorycv'
 
 function workHistory() {
 
   return (
     <div className=' '>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
         <SelectWorkHistory  />
         
 

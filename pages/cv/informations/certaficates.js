@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 import SelectCertaficates from '../../../components/selectCertaficate'
 import WhoMe from '../../../components/whoMe'
 
@@ -7,7 +7,7 @@ function certaficates() {
 
   return (
     <div className=' '>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
         <SelectCertaficates />  
     </div>
   )

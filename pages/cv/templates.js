@@ -1,6 +1,6 @@
 import React from 'react'
 import PhaseCoverLetter from '../../components/CoverLetter/PhaseCoverLetter'
-import SwiperCoverLetter from '../../components/CoverLetter/swiperCoverLetter'
+import SwiperCoverLetter from '../../components/shared/swiperTemplates'
 
 const data = [
     {src : "/cv1.jpg"},

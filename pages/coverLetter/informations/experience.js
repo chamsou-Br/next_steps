@@ -6,7 +6,7 @@ import YearExperience from '../../../components/CoverLetter/YearExperience';
 import LevelExperience from '../../../components/CoverLetter/LevelExperience';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddLevelNiveau } from '../../../Redux/FuncRedux/Func_NewCL';
-import PhaseCoverLetter from '../../../components/CoverLetter/PhaseCoverLetter'
+import PhaseStep from '../../../components/shared/PhaseStep'
 
 
 
@@ -34,7 +34,7 @@ function experience() {
 
   return (
     <div className=' '>
-        <PhaseCoverLetter data={2} />
+        <PhaseStep data={2} />
             {/* Help Cover letter */}
       <HelpCL_Small title="Experience With this Job" desc="This is a page to let you give us your experience in this job and give us title of your last job if exist  .You can't continue if you don't choose your level of expertise . " />
            
