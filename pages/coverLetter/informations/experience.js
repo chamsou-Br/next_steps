@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HelpCL_Small from '../../../components/shared/HelpCL_Small';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
@@ -29,10 +29,13 @@ function experience() {
   }
 
     // STATE
-    const [level , setLevel] = useState(newCL.level ? newCL.level: null );
-    const [yearExperience , setYearExperience] = useState(newCL.yearExperience ? newCL.yearExperience : 0 );
+    const [level , setLevel] = useState(null);
+    const [yearExperience , setYearExperience] = useState(0);
 
-
+    useEffect(()=>{
+      setLevel(newCL.level ? newCL.level: null )
+      setYearExperience(newCL.yearExperience ? newCL.yearExperience : 0 )
+    },[])
   return (
     <div className=' '>
         <PhaseStep data={2} />

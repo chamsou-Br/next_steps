@@ -8,12 +8,19 @@ import {NewCVReducer} from "./Redux/Reducres/newCV.js"
 
 
 
-const initState = {
+const initState = typeof window !== "undefined" ?  {
+    newCL : JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL")) ? 
+            JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL")) : 
+            { existe : false},
+    newCV : {
+        existe : false
+    }
+} : {
     newCL : {
         existe : false
     },
     newCV : {
-        existe : false
+        existe : true
     }
 }
 

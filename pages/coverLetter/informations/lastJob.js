@@ -33,10 +33,15 @@ function lastJob() {
   
       // STATE
       
-      const [storieLastWork , setstorieLastWork] = useState(newCL.experience ? newCL.experience :"");
-      const [lastJob , setLastJob ] = useState(newCL.lastJob ? newCL.lastJob :"Last Job");
-      const [jobsToChoose,setJobsToChoose] = useState(jobs.filter(item => item.type == newCL.typeJob)[0].list) 
+      const [storieLastWork , setstorieLastWork] = useState("");
+      const [lastJob , setLastJob ] = useState("Last Job");
+      const [jobsToChoose,setJobsToChoose] = useState([]) 
   
+      useEffect(()=>{
+        setstorieLastWork(newCL.experience ? newCL.experience :"")
+        setLastJob(newCL.lastJob ? newCL.lastJob :"Last Job")
+        setJobsToChoose(!newCL.lastJob ? [] : jobs.filter(item => item.type == newCL.typeJob)[0].list)
+      },[])
   return (
     <div className=' '>
       <PhaseStep data={2} />

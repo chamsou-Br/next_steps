@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import SkillsSelected from '../../../components/CoverLetter/SkillsSelected';
@@ -20,11 +20,16 @@ function skillsJob() {
 
   // STATE
   const [modalShow, setModalShow] = useState(false);
-  const [skills,setSkills] = useState(newCL.skills ? newCL.skills : []);
-  const [skillsSelected , setSkillsSelected] = useState(newCL.skills ? newCL.skills : []);
-  const [skillsToChoose,setSkillsToChoose] = useState(skillsData.filter(item => item.type == newCL.typeJob)[0].list)
+  const [skills,setSkills] = useState([]);
+  const [skillsSelected , setSkillsSelected] = useState([]);
+  const [skillsToChoose,setSkillsToChoose] = useState([])
 
-
+  useEffect(() => {
+    setSkills(newCL.skills ? newCL.skills : [])
+    setSkillsSelected(newCL.skills ? newCL.skills : [])
+    setSkillsToChoose(skillsData.filter(item => item.type == newCL.typeJob)[0].list)
+  }, [])
+  
   // select skills function
   const onSelect = (skill) => {
     if (skillsSelected.indexOf(skill) == -1) {

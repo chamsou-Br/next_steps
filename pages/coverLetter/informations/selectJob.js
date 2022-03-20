@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropDowns from '../../../components/CoverLetter/DropDowns'
 import jobs from "../../../data/jobs"
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg'
@@ -18,10 +18,15 @@ function selectJob() {
     const dispatch = useDispatch()
 
     // STATE
-    const [typeSelect , setTypeSelect]  = useState(newCL.typeJob ? newCL.typeJob : "Type of job")
-    const [jobSelect , setJobSelect]  = useState(newCL.job ? newCL.job :"Name of job")
-    const [JobsOfType , setJobsOfType] = useState(typeSelect == "Type of job" ? [] : jobs.filter((item) => item.type == typeSelect)[0].list );
+    const [typeSelect , setTypeSelect]  = useState("Type of job")
+    const [jobSelect , setJobSelect]  = useState("Name of job")
+    const [JobsOfType , setJobsOfType] = useState([]);
     
+    useEffect(()=>{
+       setTypeSelect(newCL.typeJob ? newCL.typeJob : "Type of job")
+        setJobSelect(newCL.job ? newCL.job :"Name of job")
+        setJobsOfType(!newCL.typeJob ? [] : jobs.filter((item) => item.type == newCL.typeJob)[0].list  )
+    },[])
     // SELECT A TYPE OF JOB
     const onHandlerSelectTypeOfJob = (type) => {
        dispatch(AddJob(type,"Name of job"))
@@ -44,7 +49,7 @@ function selectJob() {
 
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
             <div className=' w-full lg:w-2/3 md:mt-0 lg:mt-10 text-center overflow-visible pb-40  '>
-                <h1 onClick={()=> console.log(newCL)} className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
+                <h1 onClick={()=> console.log(newCL.job , jobSelect ,typeSelect)} className=' text-blue-500 font-bold text-2xl md:text-3xl lg:text-4xl tracking-wider mb-5'>
                     The Job You are looking for !
                 </h1>
                 <div className='mt-6'>

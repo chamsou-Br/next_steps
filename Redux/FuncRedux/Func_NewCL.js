@@ -5,6 +5,7 @@ export const AddJob = (typeJob,job) => (dispatch , getState) => {
         type :  ADD_JOB ,
         payload : {typeJob,job}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
 
@@ -13,6 +14,7 @@ export const AddLastJob = (lastJob) => (dispatch , getState) => {
         type :  ADD_LASTJOB ,
         payload : {lastJob}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
 export const AddExperience = (experience) => (dispatch , getState) => {
@@ -20,6 +22,7 @@ export const AddExperience = (experience) => (dispatch , getState) => {
         type :  ADD_EXPERIENCE ,
         payload : {experience}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
 export const AddSoftwarSkills = (softwarSkills) => (dispatch , getState) => {
@@ -27,6 +30,7 @@ export const AddSoftwarSkills = (softwarSkills) => (dispatch , getState) => {
         type :  ADD_SOFTWARSKILLS,
         payload : {softwarSkills}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
 export const AddSkills = (skills) => (dispatch , getState) => {
@@ -34,6 +38,7 @@ export const AddSkills = (skills) => (dispatch , getState) => {
         type :  ADD_SKILLS ,
         payload : {skills}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
 export const AddLevelNiveau = (level,yearExperience)  => (dispatch,getState) => {
@@ -41,5 +46,6 @@ export const AddLevelNiveau = (level,yearExperience)  => (dispatch,getState) => 
         type : ADD_LEVEL_NIVEAU ,
         payload : {level,yearExperience}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL",JSON.stringify(getState().newCL))
 }
 
