@@ -6,10 +6,16 @@ import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import AnotherWorkHistorySelected from '../../../components/cv/TitleAndDescModal';
+import { ADDWorkHistory } from '../../../Redux/FuncRedux/Func_NewCV';
+import { useDispatch, useSelector } from 'react-redux';
 
 function workHistory() {
 
-  const [workHistory,setworkHistory] = useState([]);
+      // redux
+      const newCV = useSelector(state => state.newCV)
+      const dispatch = useDispatch();
+
+  const [workHistory,setworkHistory] = useState(newCV.workHistory ? newCV.workHistory : []);
   const [isEdit,setIsEdit] = useState(-1);
   const [title,setTitle] = useState('')
   const [desc , setDesc] = useState("")
@@ -88,7 +94,7 @@ function workHistory() {
          <div className=' relative border-dashed border-4 w-11/12  md:w-4/5  m-auto pt-8 pb-5 mb-10'>    
              {workHistory.map((item,index) => {
                  return(
-                       <div className=' mb-2 border-2 border-blue-500 px-4 m-auto py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
+                       <div className=' mb-2 border border-blue-500 px-4 m-auto py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-md '>
                          <div className='mb-2 flex justify-between'>
                              <h1 className='  text-left font-bold tracking-wider '>{item.title}</h1>
                              <div className=' flex justify-center ml-3'>
@@ -125,7 +131,7 @@ function workHistory() {
        <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
        {/* Button back contine */}
-       <ContinueCL next={"/cv/informations/summary"} last={"/coverLetter/informations/experience"} disabled={false} />
+       <ContinueCL onHandler={()=>{dispatch(ADDWorkHistory(workHistory))}} next={"/cv/informations/summary"} last={"/coverLetter/informations/experience"} disabled={false} />
 
 
    </div>

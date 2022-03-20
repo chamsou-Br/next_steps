@@ -8,18 +8,25 @@ import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import DropDownsLevelSkill from '../../../components/cv/DropDownLevelSkill';
 import langaguesdata from '../../../data/languages';
 import LanguagesCVselected from '../../../components/cv/languagesCVselected';
+import { useDispatch, useSelector } from 'react-redux';
+import { ADDLangues } from '../../../Redux/FuncRedux/Func_NewCV';
 
 const levels = [0,1,2,3,4,5]
 
 function langue() {
 
+
+      // redux
+      const newCV = useSelector(state => state.newCV)
+      const dispatch = useDispatch();
+
     //show Modal
     const [modalShow, setModalShow] = useState(false);
 
     // langauges SELECTED CONFIRME
-    const [langauges,setLanguages] = useState([]);
+    const [langauges,setLanguages] = useState(newCV.langues ? newCV.langues :[]);
     // SKILLS SELECTED SANS CONFIRM
-    const [langaugesSelected , setlangaugesSelected] = useState([]);
+    const [langaugesSelected , setlangaugesSelected] = useState(newCV.langues ? newCV.langues :[]);
   
     // select skills function
     const onSelect = (languages,language) => {
@@ -114,7 +121,7 @@ function langue() {
        <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
        {/* Button back contine */}
-       <ContinueCL next={"/cv/informations/workHistory"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={langauges.length == 0} />
+       <ContinueCL onHandler={()=>{dispatch(ADDLangues(langauges))}} next={"/cv/informations/workHistory"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={langauges.length == 0} />
 
    </div>
 

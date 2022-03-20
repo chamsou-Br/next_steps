@@ -6,11 +6,18 @@ import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import CertaficateFormModal from '../../../components/cv/CertaficateFormModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { ADDCertaficates } from '../../../Redux/FuncRedux/Func_NewCV';
+
 
 function certaficates() {
 
+  // redux
+  const newCV = useSelector(state => state.newCV)
+  const dispatch = useDispatch();
+
   
-  const [certaficatesDegree,setcertaficatesDegree] = useState([]);
+  const [certaficatesDegree,setcertaficatesDegree] = useState(newCV.certaficates ? newCV.certaficates :[]);
   const [isEdit,setIsEdit] = useState(-1);
   const [title,setTitle] = useState('')
   const [desc , setDesc] = useState("")
@@ -24,7 +31,6 @@ function certaficates() {
   }
   // consfirm selecte function
   const onHandler = () => {
-
     if (isEdit != -1) {
       const newCertaficates = certaficatesDegree.map((item,index)=>{
         if (index != isEdit){
@@ -46,20 +52,19 @@ function certaficates() {
   }
 
   // ONREMOVE SOCIAL MEDIA
-  const onRemoveWotkHistory = (i) => {
+  const onRemoveCertaficate = (i) => {
     const newWorkHistory = certaficatesDegree.filter((item ,index)=>{
         if (i != index ) return item
     })
-    setcertaficatesDegree(newWorkHistory)      
+    setcertaficatesDegree(newWorkHistory)    
   }
    // ONEDIT SOCIAL MEDIA
-   const onEDITWotkHistory = (item,index) => {
+   const onEDITCertaficate = (item,index) => {
     setDesc(item.desc)
     setTitle(item.title)
     setURL(item.url)
     setIsEdit(index);
     setModalShow(true)
-    
   }
  
   return (
@@ -72,7 +77,7 @@ function certaficates() {
 
         <div className=' flex mt-7 lg:mt-12 justify-center sm:mx-1 md:mx-5  lg:mx-10'>
           <div className=' w-full lg:w-full xl:w-2/3 md:mt-0 lg:mt-10 text-center h-full pb-40   '>
-              <h1 onClick={()=>console.log(certaficatesDegree)} className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
+              <h1 onClick={()=>console.log(newCV)} className=' text-blue-500 font-bold text-xl md:text-2xl lg:text-3xl tracking-wider mb-14'>
                   Your Certaficates
               </h1>
               {certaficatesDegree.length == 0 && (
@@ -89,16 +94,16 @@ function certaficates() {
                 <div className=' relative border-dashed border-4 w-11/12  md:w-4/5  m-auto pt-8 pb-5 mb-10'>    
                     {certaficatesDegree.map((item,index) => {
                         return(
-                              <div className=' border-2 border-blue-500 px-4 m-auto py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
+                              <div key={index} className=' mb-2 border border-blue-500 px-4 m-auto py-2 w-10/12 sm:w-3/5 lg:w-2/3 rounded-sm '>
                                 <div className='mb-2 flex justify-between'>
                                     <h1 className='  text-left font-bold tracking-wider '>{item.title}</h1>
                                     <div className=' flex justify-center ml-3'>
                                         <FaShare size={18} className=' text-gray-300 font-bold text-center m-auto mr-2 hover:text-blue-500' 
                                                 onClick={()=>window.open(item.url)}/>
                                         <FaEdit size={18} className=' text-gray-300 font-bold  text-center m-auto mr-2 hover:text-blue-500' 
-                                                onClick={()=>onEDITWotkHistory(item,index)}/>
+                                                onClick={()=>onEDITCertaficate(item,index)}/>
                                         <FaTrash size={18} className=' text-gray-300 font-bold text-center m-auto hover:text-blue-500' 
-                                                onClick={()=>onRemoveWotkHistory(index)}/>      
+                                                onClick={()=>onRemoveCertaficate(index)}/>      
                                     </div>
                                 </div>
                                 <hr />
@@ -127,7 +132,7 @@ function certaficates() {
               <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
               {/* Button back contine */}
-              <ContinueCL next={"/cv/informations/school"} last={"/coverLetter/informations/experience"} disabled={false} />
+              <ContinueCL onHandler={()=>{dispatch(ADDCertaficates(certaficatesDegree))}} next={"/cv/informations/school"} last={"/coverLetter/informations/experience"} disabled={false} />
 
           </div>
 

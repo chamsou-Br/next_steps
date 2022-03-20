@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import { FaEdit, FaPlus } from 'react-icons/fa';
@@ -9,10 +9,16 @@ import IntroModalCV from '../../../components/cv/IntroModalCV';
 import DropDownsLevelSkill from '../../../components/cv/DropDownLevelSkill';
 import SkillsCVSelected from '../../../components/cv/skillsCVSlected';
 import skillsData from '../../../data/skills';
+import { AddSkills } from '../../../Redux/FuncRedux/Func_NewCV';
+import { useDispatch, useSelector } from 'react-redux';
 
 const levels = [0,1,2,3,4,5]
 
 function informations() {
+
+      // redux
+      const newCV = useSelector(state => state.newCV)
+      const dispatch = useDispatch();
 
     //show Modal
     const [modalShow, setModalShow] = useState(false);
@@ -21,9 +27,11 @@ function informations() {
     // SKILLS WHICH WE CAN SELECTE IT
     const [skillsToChoose,setSkillsToChoose] = useState(skillsData[0].list)
     // SKILLS SELECTED CONFIRME
-    const [skills,setSkills] = useState([]);
+    const [skills,setSkills] = useState(newCV.skills ? newCV.skills : []);
     // SKILLS SELECTED SANS CONFIRM
-    const [skillsSelected , setSkillsSelected] = useState([]);
+    const [skillsSelected , setSkillsSelected] = useState(newCV.skills ? newCV.skills : []);
+
+
   
     // select skills function
     const onSelect = (skills,skill) => {
@@ -123,7 +131,7 @@ function informations() {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/workHistory"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
+            <ContinueCL onHandler={()=>{dispatch(AddSkills(skills))}} next={"/cv/informations/workHistory"} last={"/coverLetter/informations/skillsSoftwarJob"} disabled={skills.length == 0} />
 
         </div>
 

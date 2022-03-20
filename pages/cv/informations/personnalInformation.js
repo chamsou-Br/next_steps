@@ -4,11 +4,17 @@ import HelpCL_Small from '../../../components/shared/HelpCL_Small';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import PersonalInfoForm from '../../../components/cv/PersonalInfoForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddPersonnalInfo } from '../../../Redux/FuncRedux/Func_NewCV';
 
 
 function informations() {
 
-  const [persInfo , setPersInfo] = useState({
+     // redux
+     const newCV = useSelector(state => state.newCV)
+     const dispatch = useDispatch();
+
+  const [persInfo , setPersInfo] = useState(newCV.personnalInfo ? newCV.personnalInfo :{
     firstName : '',
     lastName  :'',
     email : "",
@@ -50,7 +56,7 @@ function informations() {
             <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
             {/* Button back contine */}
-            <ContinueCL next={"/cv/informations/socialMedia"} last={"/coverLetter/templates"} disabled={disabledContinue} />
+            <ContinueCL onHandler={()=>{dispatch(AddPersonnalInfo(persInfo))}} next={"/cv/informations/socialMedia"} last={"/coverLetter/templates"} disabled={disabledContinue} />
 
 
         </div>

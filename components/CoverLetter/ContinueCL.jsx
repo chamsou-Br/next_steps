@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 import { useRouter } from 'next/router'
 
-function ContinueCL({disabled,next,last}) {
+function ContinueCL({disabled,next,last,onHandler}) {
   const router = useRouter()
   return (
       <>
@@ -14,7 +14,7 @@ function ContinueCL({disabled,next,last}) {
             <button disabled={disabled} className={classNames('  bg-blue-500 text-white text-sm font-bold tracking-wider text-center px-8 lg:px-12 py-3 rounded-md ',{
                       " cursor-not-allowed" : disabled,
                       "hover:bg-white hover:border hover:text-blue-500 cursor-pointer" : !disabled ,
-                       })} onClick={()=>router.push(next)}>
+                       })} onClick={()=>{router.push(next);onHandler ? onHandler() : null}}>
                   Continue
             </button>
        </div>

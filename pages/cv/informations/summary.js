@@ -4,15 +4,21 @@ import HelpCL_Small from '../../../components/shared/HelpCL_Small';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
 import ContinueCL from '../../../components/CoverLetter/ContinueCL';
 import StoriesLastWork from '../../../components/CoverLetter/StoriesLastWork';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddSummary } from '../../../Redux/FuncRedux/Func_NewCV';
 
-function informations() {
+function Summary() {
+
+   // redux
+   const newCV = useSelector(state => state.newCV)
+   const dispatch = useDispatch();
 
   const onHandlerGetExperience = (s) => {
     setsummarySection(s);
   }
 
   // STATE
-  const [summarySection , setsummarySection] = useState("");
+  const [summarySection , setsummarySection] = useState(newCV.summary ? newCV.summary : "");
   return (
     <div className=' min-h-screen'>
         <PhaseStep data={2} />
@@ -31,7 +37,7 @@ function informations() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <ContinueCL next={"/cv/informations/certaficates"} last={"/coverLetter/informations/selectJob"} disabled={false} />
+                <ContinueCL onHandler={()=>{dispatch(AddSummary(summarySection))}} next={"/cv/informations/certaficates"} last={"/coverLetter/informations/selectJob"} disabled={false} />
 
              </div>
 
@@ -46,4 +52,4 @@ function informations() {
 }
 
 
-export default informations 
+export default Summary 
