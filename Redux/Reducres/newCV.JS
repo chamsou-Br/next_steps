@@ -6,7 +6,7 @@ const data = {
     schoolInfo : {},
     summary : '',
     skills : [],
-    languages : [] , 
+    langues : [] , 
     certaficates : [] ,
     workHistory : [],
     socialMedia : []
@@ -26,7 +26,7 @@ export const NewCVReducer = (state = data , Action) => {
         case ADD_SKILLS :
             return {...state , skills : Action.payload , existe : true}
         case ADD_LANGUES : 
-            return {...state , languages : Action.payload , existe : true}
+            return {...state , langues : Action.payload , existe : true}
         case ADD_CERTAFICATES : 
             return {...state , certaficates : Action.payload , existe : true}
         case ADD_WORK_HISTORY : 
