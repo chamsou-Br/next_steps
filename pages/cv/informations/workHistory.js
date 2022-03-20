@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import { FaTrash, FaPlus ,FaEdit} from 'react-icons/fa';
 import HelpCL_Small from '../../../components/shared/HelpCL_Small';
@@ -15,10 +15,14 @@ function workHistory() {
       const newCV = useSelector(state => state.newCV)
       const dispatch = useDispatch();
 
-  const [workHistory,setworkHistory] = useState(newCV.workHistory ? newCV.workHistory : []);
+  const [workHistory,setworkHistory] = useState([]);
   const [isEdit,setIsEdit] = useState(-1);
   const [title,setTitle] = useState('')
   const [desc , setDesc] = useState("")
+
+  useEffect(()=>{
+    setworkHistory(newCV.workHistory ? newCV.workHistory : [])
+  },[])
     //show Modal
     const [modalShow, setModalShow] = useState(false);
   

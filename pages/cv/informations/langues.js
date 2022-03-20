@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import MyVerticallyCenteredModal from '../../../components/Modal';
 import { FaEdit, FaPlus } from 'react-icons/fa';
@@ -24,10 +24,14 @@ function langue() {
     const [modalShow, setModalShow] = useState(false);
 
     // langauges SELECTED CONFIRME
-    const [langauges,setLanguages] = useState(newCV.langues ? newCV.langues :[]);
+    const [langauges,setLanguages] = useState([]);
     // SKILLS SELECTED SANS CONFIRM
     const [langaugesSelected , setlangaugesSelected] = useState(newCV.langues ? newCV.langues :[]);
   
+
+    useEffect(()=>{
+      setLanguages(newCV.langues ? newCV.langues :[])
+    },[])
     // select skills function
     const onSelect = (languages,language) => {
       if (languages.indexOf(language) == -1) {

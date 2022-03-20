@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import { FaTrash, FaPlus ,FaEdit , FaShare} from 'react-icons/fa';
 import HelpCL_Small from '../../../components/shared/HelpCL_Small';
@@ -17,11 +17,15 @@ function certaficates() {
   const dispatch = useDispatch();
 
   
-  const [certaficatesDegree,setcertaficatesDegree] = useState(newCV.certaficates ? newCV.certaficates :[]);
+  const [certaficatesDegree,setcertaficatesDegree] = useState([]);
   const [isEdit,setIsEdit] = useState(-1);
   const [title,setTitle] = useState('')
   const [desc , setDesc] = useState("")
   const [url , setURL] = useState("")
+
+  useEffect(()=>{
+    setcertaficatesDegree(newCV.certaficates ? newCV.certaficates :[])
+  },[])
     //show Modal
     const [modalShow, setModalShow] = useState(false);
   

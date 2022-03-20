@@ -27,10 +27,14 @@ function informations() {
     // SKILLS WHICH WE CAN SELECTE IT
     const [skillsToChoose,setSkillsToChoose] = useState(skillsData[0].list)
     // SKILLS SELECTED CONFIRME
-    const [skills,setSkills] = useState(newCV.skills ? newCV.skills : []);
+    const [skills,setSkills] = useState([]);
     // SKILLS SELECTED SANS CONFIRM
-    const [skillsSelected , setSkillsSelected] = useState(newCV.skills ? newCV.skills : []);
+    const [skillsSelected , setSkillsSelected] = useState([]);
 
+    useEffect(()=>{
+      setSkills(newCV.skills ? newCV.skills : [])
+      setSkillsSelected(newCV.skills ? newCV.skills : [])
+    },[])
 
   
     // select skills function

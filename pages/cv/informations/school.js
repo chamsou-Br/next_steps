@@ -13,7 +13,7 @@ function informations() {
     const newCV = useSelector(state => state.newCV)
     const dispatch = useDispatch();
 
-  const [persInfo , setPersInfo] = useState(newCV.schoolInfo ? newCV.schoolInfo :{
+  const [persInfo , setPersInfo] = useState({
     schoolName : '',
     schoolLocation  :'',
     degree : "",
@@ -24,6 +24,14 @@ function informations() {
   const [disabledContinue,setDisabled] = useState(true)
 
   useEffect(() => {
+    setPersInfo(newCV.schoolInfo ? newCV.schoolInfo :{
+      schoolName : '',
+      schoolLocation  :'',
+      degree : "",
+      fieldofstudy : "" ,
+      graduationStartDate : '',
+      graduationEndDate : '',
+    })
     const {schoolName , schoolLocation , degree , fieldofstudy , graduationStartDate , graduationEndDate} = persInfo
     if (schoolName && schoolLocation && degree && fieldofstudy && graduationStartDate && graduationEndDate ) setDisabled(false)
     else setDisabled(true)

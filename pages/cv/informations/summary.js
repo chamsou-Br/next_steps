@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import HelpCL_Small from '../../../components/shared/HelpCL_Small';
 import HelpCL_Larg from '../../../components/shared/HelpCL_Larg';
@@ -18,7 +18,10 @@ function Summary() {
   }
 
   // STATE
-  const [summarySection , setsummarySection] = useState(newCV.summary ? newCV.summary : "");
+  const [summarySection , setsummarySection] = useState("");
+  useEffect(()=>{
+    setsummarySection(newCV.summary ? newCV.summary : "")
+  },[])
   return (
     <div className=' min-h-screen'>
         <PhaseStep data={2} />
@@ -37,7 +40,7 @@ function Summary() {
                 <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
                 {/* Button back contine */}
-                <ContinueCL onHandler={()=>{dispatch(AddSummary(summarySection))}} next={"/cv/informations/certaficates"} last={"/coverLetter/informations/selectJob"} disabled={false} />
+                <ContinueCL onHandler={()=>{dispatch(AddSummary(summarySection))}} next={"/cv/informations/certaficates"} last={"/coverLetter/informations/selectJob"} disabled={summarySection == ""} />
 
              </div>
 

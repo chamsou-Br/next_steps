@@ -12,9 +12,9 @@ const initState = typeof window !== "undefined" ?  {
     newCL : JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL")) ? 
             JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCL")) : 
             { existe : false},
-    newCV : {
-        existe : false
-    }
+    newCV : JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV")) ? 
+            JSON.parse(localStorage.getItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV")) : 
+            { existe : false},
 } : {
     newCL : {
         existe : false

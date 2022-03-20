@@ -6,6 +6,7 @@ export const AddPersonnalInfo = (personnalInfo) => (dispatch , getState) => {
         type :  ADD_PERSONAL_INFO ,
         payload : {personnalInfo}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const AddSchool = (schoolInfo) => (dispatch , getState) => {
@@ -13,6 +14,7 @@ export const AddSchool = (schoolInfo) => (dispatch , getState) => {
         type :  ADD_SCHOOL_INFO ,
         payload : {schoolInfo}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const AddSummary = (summary) => (dispatch , getState) => {
@@ -20,6 +22,7 @@ export const AddSummary = (summary) => (dispatch , getState) => {
         type :  ADD_SUMMARY ,
         payload : {summary}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 
@@ -28,6 +31,7 @@ export const AddSkills = (skills) => (dispatch , getState) => {
         type :  ADD_SKILLS ,
         payload : {skills}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const ADDLangues = (langues) => (dispatch , getState) => {
@@ -35,6 +39,7 @@ export const ADDLangues = (langues) => (dispatch , getState) => {
         type :  ADD_LANGUES ,
         payload : {langues}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const ADDCertaficates = (certaficates) => (dispatch , getState) => {
@@ -42,6 +47,7 @@ export const ADDCertaficates = (certaficates) => (dispatch , getState) => {
         type :  ADD_CERTAFICATES ,
         payload : {certaficates}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const ADDWorkHistory = (workHistory) => (dispatch , getState) => {
@@ -49,6 +55,7 @@ export const ADDWorkHistory = (workHistory) => (dispatch , getState) => {
         type :  ADD_WORK_HISTORY ,
         payload : {workHistory}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }
 
 export const ADDSocialMedia = (socialMedia) => (dispatch , getState) => {
@@ -56,4 +63,5 @@ export const ADDSocialMedia = (socialMedia) => (dispatch , getState) => {
         type :  ADD_SOCIAL_MEDIA ,
         payload : {socialMedia}
     })
+    localStorage.setItem("PROJET_STEP_TO_STEP_TO_GET_A_JOB__NewCV",JSON.stringify(getState().newCV))
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PhaseStep from '../../../components/shared/PhaseStep'
 import { FaTrash, FaPlus } from 'react-icons/fa';
 import HelpCL_Small from '../../../components/shared/HelpCL_Small';
@@ -18,7 +18,11 @@ function informations() {
      const newCV = useSelector(state => state.newCV)
      const dispatch = useDispatch();
 
-    const [socialMedias,setsocialMedias] = useState(newCV.socialMedia ? newCV.socialMedia : []);
+    const [socialMedias,setsocialMedias] = useState([]);
+
+    useEffect(()=>{
+      setsocialMedias(newCV.socialMedia ? newCV.socialMedia : [])
+    },[])
 
     // ADD SOCIAL MEDIA FUNCTION
     const onAddSocialMedia = () => {

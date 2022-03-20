@@ -14,7 +14,7 @@ function informations() {
      const newCV = useSelector(state => state.newCV)
      const dispatch = useDispatch();
 
-  const [persInfo , setPersInfo] = useState(newCV.personnalInfo ? newCV.personnalInfo :{
+  const [persInfo , setPersInfo] = useState({
     firstName : '',
     lastName  :'',
     email : "",
@@ -23,6 +23,17 @@ function informations() {
     city : '',
     profession : ""
   })
+  useEffect(()=>{
+    setPersInfo(newCV.personnalInfo ? newCV.personnalInfo :{
+      firstName : '',
+      lastName  :'',
+      email : "",
+      phone : "" ,
+      dateOfBirth : '',
+      city : '',
+      profession : ""
+    })
+  },[])
   const [disabledContinue,setDisabled] = useState(true)
 
   useEffect(() => {
