@@ -36,7 +36,7 @@ function informations() {
     if (schoolName && schoolLocation && degree && fieldofstudy && graduationStartDate && graduationEndDate ) setDisabled(false)
     else setDisabled(true)
   
-  }, [persInfo])
+  }, [])
 
   return (
     <div className=' min-h-screen'>

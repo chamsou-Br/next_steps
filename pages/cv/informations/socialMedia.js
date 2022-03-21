@@ -104,7 +104,7 @@ function informations() {
        <div className=' m-auto mt-10 h-0.5 w-4/5  md:w-3/4 bg-black opacity-20' />
 
        {/* Button back contine */}
-       <ContinueCL onHandler={()=>{dispatch(ADDSocialMedia(socialMedias))}} next={"/cv/informations/skills"} last={"/coverLetter/informations/experience"} disabled={socialMedias.length == 0} />
+       <ContinueCL onHandler={()=>{dispatch(ADDSocialMedia(socialMedias))}} next={"/cv/informations/skills"} last={"/coverLetter/informations/experience"} disabled={false} />
 
 
    </div>

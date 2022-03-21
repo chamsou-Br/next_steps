@@ -9,7 +9,7 @@ const SchoolForm = (props) => {
                     <div className=" w-1/2 mr-3">
                         <label className=" tracking-wider font-bold text-sm text-gray-500 block text-left">School Name</label>
                         <input className=" outline-none w-full border border-gray-300 rounded-sm  px-3 py-1.5  sm:py-2.5 focus:border-blue-500 focus:border-2 hover:border-blue-500" 
-                               onChange={(e)=> props.onHandlerSetPersonnalInformation({...props.persInfo , schoolName : e.target.value }) }
+                               onChange={(e)=> {props.onHandlerSetPersonnalInformation({...props.persInfo , schoolName : e.target.value })}}
                                value={props.persInfo.schoolName} />
                     </div>
                     <div className=" w-1/2 mr-2">
