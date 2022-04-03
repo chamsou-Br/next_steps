@@ -21,7 +21,7 @@ function informations() {
     graduationStartDate : '',
     graduationEndDate : '',
   })
-  const [disabledContinue,setDisabled] = useState(true)
+  const [disabledContinue,setDisabled] = useState(false)
 
   useEffect(() => {
     setPersInfo(newCV.schoolInfo ? newCV.schoolInfo :{
