@@ -38,6 +38,14 @@ function informations() {
   
   }, [])
 
+  useEffect(() => {
+    const {schoolName , schoolLocation , degree , fieldofstudy , graduationStartDate , graduationEndDate} = persInfo
+    if (schoolName && schoolLocation && degree && fieldofstudy && graduationStartDate && graduationEndDate ) setDisabled(false)
+    else setDisabled(true)
+  
+  
+  }, [persInfo])
+
   return (
     <div className=' min-h-screen'>
         <PhaseStep data={2} />

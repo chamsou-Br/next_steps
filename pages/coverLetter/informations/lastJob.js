@@ -40,7 +40,8 @@ function lastJob() {
       useEffect(()=>{
         setstorieLastWork(newCL.experience ? newCL.experience :"")
         setLastJob(newCL.lastJob ? newCL.lastJob :"Last Job")
-        setJobsToChoose(!newCL.lastJob ? [] : jobs.filter(item => item.type == newCL.typeJob)[0].list)
+        console.log(newCL)
+        setJobsToChoose(!newCL.typeJob ? [] : jobs.filter(item => item.type == newCL.typeJob)[0].list)
       },[])
   return (
     <div className=' '>

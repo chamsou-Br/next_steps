@@ -170,7 +170,7 @@ const [scrollTop, setscrollTop] = useState(0)
 
             {/* docs nav */}
             {(scrollTop > scrollfixed) && (
-                <a href="/" className={classNames_1("text-base px-3 font-medium text-gray-500 hover:text-gray-900")} >
+                <a href="/" className={classNames_1("text-base px-3 cursor-not-allowed font-medium text-gray-500 hover:text-gray-900")} >
                     Docs
                 </a>
             )}
@@ -191,7 +191,7 @@ const [scrollTop, setscrollTop] = useState(0)
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      'group px-2 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                      'group px-2 bg-white  rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     )}
                   >
                     <span>More</span>
@@ -220,7 +220,7 @@ const [scrollTop, setscrollTop] = useState(0)
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                              className="-m-3 p-3 flex cursor-not-allowed items-start rounded-lg hover:bg-gray-50"
                             >
                               <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
                               <div className="ml-4">
@@ -235,7 +235,7 @@ const [scrollTop, setscrollTop] = useState(0)
                             <div key={item.name} className="flow-root">
                               <a
                                 href={item.href}
-                                className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                className="-m-3 p-3 cursor-not-allowed flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
                               >
                                 <item.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                                 <span className="ml-3">{item.name}</span>
